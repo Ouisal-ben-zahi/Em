@@ -1,0 +1,458 @@
+/* ==================================================
+   VARIABLES GLOBALES
+================================================== */
+:root {
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --red: #e01f26;
+  --red-soft: rgba(224, 31, 38, 0.6);
+  --text-soft: rgba(255, 255, 255, 0.85);
+
+  --container-width: 90%;
+  --container-max: 1400px;
+
+  --section-height: 600px;
+  --transition: 0.3s ease;
+
+  --architecture-height: 600px;
+}
+
+/* ==================================================
+   WRAPPER GLOBAL
+================================================== */
+.gold-garden-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--black);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==================================================
+   PAGE PRINCIPALE
+================================================== */
+.element-light {
+  width: 100vw;
+  background: transparent;
+  padding-bottom: 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Masquer anciens halos Figma */
+.element-light [class^="rectangle"],
+.element-light .div {
+  display: none;
+}
+
+/* ==================================================
+   HERO
+================================================== */
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image-wrapper img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient bas hero */
+.hero-gradient-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 20%;
+  background: linear-gradient(
+    to top,
+    rgba(224, 31, 38, 0.95),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ==================================================
+   TITRE HERO
+================================================== */
+.l-harmonie-entre {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--container-width);
+  max-width: var(--container-max);
+  text-align: center;
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 52px;
+  color: var(--white);
+  text-shadow: 0 2px 20px rgba(0,0,0,.8);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ==================================================
+   SECTION ARCHITECTURE
+================================================== */
+.architecture-section-container {
+  width: var(--container-width);
+  max-width: var(--container-max);
+  margin: 40px auto 60px;
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr; /* Largeur augmentée de 120px à 140px pour les miniatures */
+  gap: 40px;
+  align-items: start;
+}
+
+/* ==================================================
+   MINIATURES
+================================================== */
+.architecture-thumbnails {
+  width: 140px; /* Largeur augmentée de 120px à 140px */
+  height: 650px; /* Hauteur ajustée pour les miniatures plus grandes */
+  display: flex;
+  flex-direction: column;
+}
+
+.architecture-main-image,
+.architecture-content {
+  height: var(--section-height);
+}
+
+/* Conteneur des miniatures avec scroll */
+.architecture-thumbnails-scroll {
+  width: 100%;
+  height: 600px; /* Hauteur ajustée pour 5 images de 130px + gaps */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-right: 4px; /* Espace pour la scrollbar */
+}
+
+/* Style de la scrollbar personnalisée */
+.architecture-thumbnails-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.architecture-thumbnails-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.architecture-thumbnails-scroll::-webkit-scrollbar-thumb {
+  background: var(--red-soft);
+  transition: background 0.3s ease;
+}
+
+.architecture-thumbnails-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--red);
+}
+
+/* Pour Firefox */
+.architecture-thumbnails-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--red-soft) rgba(255, 255, 255, 0.05);
+}
+
+.architecture-thumbnails-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: auto;
+  min-height: 100%;
+}
+
+.architecture-thumbnail-item {
+  height: 130px; /* Hauteur augmentée de 120px à 130px */
+  min-height: 130px;
+  flex-shrink: 0; /* Empêche la réduction de taille */
+  cursor: pointer;
+  opacity: 0;
+  animation: slideIn 0.5s forwards;
+  transition: transform var(--transition), border var(--transition), opacity var(--transition);
+  border: 2px solid transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+.architecture-thumbnail-item:hover {
+  transform: scale(1.05);
+  border-color: var(--red-soft);
+  z-index: 2;
+}
+
+.architecture-thumbnail-item.selected {
+  border-color: var(--red);
+  box-shadow: 0 0 15px var(--red-soft);
+  z-index: 1;
+}
+
+.architecture-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==================================================
+   IMAGE PRINCIPALE
+================================================== */
+.architecture-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0 30px 80px rgba(0,0,0,.7);
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* ==================================================
+   TEXTE ARCHITECTURE
+================================================== */
+.architecture-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+.architecture-inspir {
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.architecture-subtitle {
+  max-width: 500px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+/* ==================================================
+   CARTES (GROUP)
+================================================== */
+.architecture-content .group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.architecture-content .layer-4,
+.architecture-content .layer-5,
+.architecture-content .layer-6,
+.architecture-content .layer-7 {
+  background: var(--white);
+  height: 135px;
+  padding: 15px;
+  clip-path: polygon(0 0, calc(100% - 55px) 0, 100% 55px, 100% 100%, 0 100%);
+}
+/* ==================================================
+   CARTES – ICON EN HAUT / TEXTE EN BAS
+================================================== */
+
+.architecture-content .layer-4,
+.architecture-content .layer-5,
+.architecture-content .layer-6,
+.architecture-content .layer-7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ICONES */
+.architecture-content .layer-4 img,
+.architecture-content .layer-5 img,
+.architecture-content .layer-6 img,
+.architecture-content .layer-7 img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  margin-top: 5px;
+}
+
+/* TEXTE */
+.architecture-content .text-wrapper-5,
+.architecture-content .ascenseurs-moderne {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+/* Cas texte sur 2 lignes */
+.architecture-content .ascenseurs-moderne {
+  line-height: 1.3;
+}
+
+/* ==================================================
+   ANIMATIONS
+================================================== */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 1024px) {
+  .architecture-section-container {
+    grid-template-columns: 1fr;
+  }
+  .architecture-section-container {
+    display: block; /* passe de grid à block pour éviter le débordement */
+    width: 100%;    /* occupe toute la largeur de l'écran */
+    max-width: 100%; /* retire la limite de 1400px */
+    margin: 20px 0;  /* marge top/bottom réduite */
+    padding: 0 10px; /* petit padding horizontal pour ne pas coller les bords */
+    box-sizing: border-box; /* inclut padding dans largeur */
+  }
+  .architecture-thumbnails {
+    flex-direction: row;
+    height: auto;
+  }
+
+  .architecture-content {
+    padding-left: 0;
+  }
+}
+
+/* ==================================================
+   MOBILE - MINIATURES EN BAS DE L'IMAGE PRINCIPALE
+================================================== */
+@media (max-width: 768px) {
+  .architecture-section-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 20px auto;
+    padding: 0 16px;
+  }
+
+  /* Image principale en haut */
+  .architecture-main-image {
+  width: 100%;
+    height: 320px;
+    order: 1;
+  }
+
+  .architecture-main-image img,
+  .architecture-main-image .architecture-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+
+  /* Miniatures en bas de l'image principale avec scroll horizontal */
+  .architecture-thumbnails {
+  width: 100%;
+    height: auto;
+    order: 2;
+    margin-top: 0;
+  }
+
+  .architecture-thumbnails-scroll {
+  width: 100%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Scrollbar horizontale personnalisée */
+  .architecture-thumbnails-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .architecture-thumbnails-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .architecture-thumbnails-scroll::-webkit-scrollbar-thumb {
+    background: var(--red-soft);
+    transition: background 0.3s ease;
+  }
+
+  .architecture-thumbnails-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+  }
+
+  /* Pour Firefox */
+  .architecture-thumbnails-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--red-soft) rgba(255, 255, 255, 0.05);
+  }
+
+  /* Liste horizontale */
+  .architecture-thumbnails-list {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    height: auto;
+    min-height: auto;
+    padding: 0 4px;
+  }
+
+  /* Miniatures en ligne horizontale */
+  .architecture-thumbnail-item {
+    width: 170px; /* Largeur augmentée de 150px à 170px */
+    height: 110px;
+    min-height: 110px;
+    flex-shrink: 0;
+    cursor: pointer;
+    opacity: 1;
+    animation: slideInHorizontal 0.5s forwards;
+    transition: transform var(--transition), border var(--transition), opacity var(--transition);
+    border: 2px solid transparent;
+  overflow: hidden;
+  position: relative;
+  }
+
+  .architecture-thumbnail-item:hover {
+  transform: scale(1.05);
+    border-color: var(--red-soft);
+    z-index: 2;
+  }
+
+  .architecture-thumbnail-item.selected {
+    border-color: var(--red);
+    box-shadow: 0 0 15px var(--red-soft);
+  z-index: 1;
+  }
+
+  .architecture-thumbnail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Contenu texte après les miniatures */
+  .architecture-content {
+    order: 3;
+    height: auto;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  /* Animation horizontale pour mobile */
+  @keyframes slideInHorizontal {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}

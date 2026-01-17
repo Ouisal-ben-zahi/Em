@@ -1,0 +1,210 @@
+/* Header desktop */
+.header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1400px;
+  z-index: 40;
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+/* Scroll effect desktop */
+.headerScrolled {
+  background: rgba(10, 10, 10);
+  top: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Container */
+.container {
+  width: 100%;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 10px;
+  gap: 24px;
+  position: relative;
+}
+
+/* Brand/logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.logoImg {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navLinks a {
+  transition: color 0.2s ease;
+}
+
+.active {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.navLinks a:hover {
+  color: #fff;
+}
+
+/* CTA buttons */
+.navCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+/* Hamburger menu */
+.btnMenu {
+  display: none; /* Caché par défaut (desktop) */
+  flex-direction: column;
+  gap: 3px;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background: var(--primary);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.btnMenu:hover {
+  background: var(--primary-dark);
+}
+
+.btnMenu span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  border-radius: 0;
+  transition: transform 0.2s ease;
+}
+
+/* ------------------- MOBILE ------------------- */
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+    max-width: 100%;
+    background: transparent;
+    left: 0;
+    transform: none;
+  }
+
+  .headerScrolled {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    font-size: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 30;
+    padding: 80px 20px 20px;
+  }
+
+  .navLinksOpen {
+    transform: translateX(0);
+  }
+
+  .logoImg {
+    height: 40px;
+  }
+
+  .navCta {
+    right: 20px;
+  }
+
+  .btnMenu {
+    display: flex; /* Visible uniquement sur mobile */
+    z-index: 50;
+    position: relative;
+  }
+
+  .btnMenuOpen {
+    background: var(--primary-dark);
+  }
+
+  .btnMenuOpen span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .btnMenuOpen span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .btnMenuOpen span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+/* Ajustements pour écrans très petits */
+@media (max-width: 768px) {
+  .header {
+    margin-top: 0px;
+
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  
+
+  .brand {
+    left: 20px;
+  }
+
+  .logoImg {
+    height: 35px;
+  }
+
+  .navCta {
+    right: 16px;
+  }
+}

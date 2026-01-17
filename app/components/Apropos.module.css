@@ -1,0 +1,1045 @@
+.aboutSection {
+  background-attachment: fixed;
+  position: relative;
+  overflow: visible;
+  padding: 100px 0 0 0;
+  z-index: 0;
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.aboutSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.aboutSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.95) 0%, transparent 100px),
+    linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, transparent 150px),
+    linear-gradient(to left, rgba(0, 0, 0, 0.9) 0%, transparent 200px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.aboutSection > :global(.container) {
+  position: relative;
+  z-index: 3;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: flex-start;
+  overflow: visible;
+  padding: 0;
+  width: 90%;
+  max-width: 1400px;
+  margin: 0;
+}
+
+.aboutLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.aboutStats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  width: auto;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+}
+.aboutStat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 14px;
+  background: transparent;
+  backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.aboutStat:hover {
+  background: transparent;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.aboutImages {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 0;
+  height: auto;
+  width: 100%;
+}
+
+.aboutImageWrapper {
+  position: relative;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  width: 70%;
+  min-height: 400px;
+}
+
+.aboutImageWrapper:first-child {
+  position: absolute;
+  bottom: -160px;
+  left: 0;
+  z-index: 2;
+  width: 48%;
+  border-top: 15px solid #000;
+  border-right: 15px solid #000;
+}
+
+.aboutImageWrapper.aboutImageOverlap {
+  position: relative;
+  z-index: 1;
+  width: 60%;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.aboutImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.aboutImageOverlap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.aboutRight {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: visible;
+  position: relative;
+  padding-left: 40px;
+  padding-right: 0;
+  justify-content: space-between;
+}
+
+.aboutTag {
+  font-size: 14px;
+  color: rgba(224, 31, 38, 0.8);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 20px;
+  line-height: 1em;
+}
+
+.aboutTitle {
+  font-size: 38px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 20px 0;
+  margin-left: -2px;
+  text-transform: uppercase;
+}
+
+.aboutDescription {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.9;
+  margin: 0 0 67px;
+  max-width: 508px;
+  font-weight: 300;
+}
+
+.aboutFeaturesCarousel {
+  position: relative;
+  margin: 0 0 0;
+  align-self: flex-start;
+  margin-top: 0;
+  margin-right: 0;
+  transform: translateX(0);
+  width: 100%;
+  max-width: 550px;
+  padding-right: 0;
+  overflow: hidden;
+}
+
+.aboutFeaturesCarouselContainer {
+  position: relative;
+  overflow: hidden;
+  background: rgba(224, 31, 38, 0.15);
+  padding: 32px 28px;
+  padding-right: 28px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(231, 3, 3, 0.1);
+  width: 531px;
+  max-width: 550px;
+}
+
+.aboutFeaturesTrack {
+  display: flex;
+  gap: 24px;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  padding: 4px 0;
+}
+
+.aboutFeaturesTrack.noTransition {
+  transition: none;
+}
+
+.aboutFeaturesFadeLeft,
+.aboutFeaturesFadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.aboutFeaturesFadeLeft {
+  display: none;
+}
+
+.aboutFeaturesFadeRight {
+  right: 0;
+  background: transparent;
+  backdrop-filter: none;
+  display: none;
+}
+
+.aboutFeaturesCarouselBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(223, 31, 38, 0.9);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.aboutFeaturesCarouselBtn:hover {
+  background: var(--primary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(223, 31, 38, 0.5);
+}
+
+.aboutFeaturesCarouselBtnPrev {
+  left: -20px;
+}
+
+.aboutFeaturesCarouselBtnNext {
+  right: -20px;
+}
+
+.aboutFeaturesProgress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.aboutFeaturesProgressBar {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.04s linear;
+  border-radius: 2px;
+}
+
+.aboutFeaturesDots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.aboutFeaturesDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.aboutFeaturesDot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.aboutFeaturesDot.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.aboutFeatureCard {
+  position: relative;
+  width: 150px;
+  height: 145px;
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 0;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 50px) 0, 100% 50px, 100% 100%, 0 100%);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.aboutFeatureCard.entering {
+  animation: slideInFromRight 0.6s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(200px) scale(0.9);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.aboutFeatureCard.entering.active {
+  animation: slideInFromRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.aboutFeatureCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent rgba(0, 0, 0, 0.25) transparent transparent;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.aboutFeatureCard.active::before {
+  border-color: transparent rgba(0, 0, 0, 0.35) transparent transparent;
+}
+
+.aboutFeatureCard.active {
+  background: linear-gradient(135deg, #d71920 0%, #b8151c 100%);
+  color: #fff;
+  opacity: 1;
+  box-shadow: 
+    0 8px 24px rgba(215, 25, 32, 0.4),
+    0 4px 12px rgba(215, 25, 32, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.aboutFeatureCard.active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+.aboutFeatureCard.active:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 
+    0 12px 32px rgba(215, 25, 32, 0.5),
+    0 6px 16px rgba(215, 25, 32, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.aboutFeatureCard.inactive {
+   background: linear-gradient(135deg, #d71920 0%, #b8151c 100%);
+  color: #fff;
+  opacity: 1;
+  box-shadow: 
+    0 8px 24px rgba(215, 25, 32, 0.4),
+    0 4px 12px rgba(215, 25, 32, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px) scale(1.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.featureIcon {
+  position: absolute;
+  top: 32px;
+  left: 12px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.featureIcon svg {
+  width: 38px;
+  height: 38px;
+  transition: transform 0.3s ease;
+}
+
+.featureIcon :global(.material-symbols-sharp) {
+  font-size: 45px;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.aboutFeatureCard.active .featureIcon {
+  color: #fff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.aboutFeatureCard.active:hover .featureIcon svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.aboutFeatureCard.inactive .featureIcon {
+  color: #fff;
+}
+
+.featureText {
+  margin-top: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
+  z-index: 2;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.aboutFeatureCard.active .featureText {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aboutFeatureCard.active:hover .featureText {
+  transform: translateY(-1px);
+}
+
+.aboutCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: none;
+  color: #fff;
+  background: var(--primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-self: flex-start;
+  margin-top: 40px;
+  width: 406px;
+  height: 60px;
+  font-size: 14px;
+}
+
+.aboutCtaWrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+  align-self: flex-start;
+  position: relative;
+  top: 75px;
+}
+
+.aboutCtaWrapper :global(.cta.secondary) {
+  box-shadow: 
+    0 4px 16px rgba(223, 31, 38, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+
+}
+
+.aboutCtaWrapper :global(.cta.secondary)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.aboutCtaWrapper :global(.cta.secondary:hover)::before {
+  left: 100%;
+}
+
+.aboutCtaWrapper :global(.cta.secondary:hover) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(223, 31, 38, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.aboutCtaWrapper :global(.cta.secondary:active) {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 8px rgba(223, 31, 38, 0.2),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aboutCtaWrapper :global(.cta.secondary .icon-square) {
+  width: 44px;
+  height: 44px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutCtaWrapper :global(.cta.secondary:hover .icon-square) {
+  transform: scale(1.05);
+}
+
+.aboutCtaWrapper :global(.cta.secondary .icon-square svg) {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.aboutCtaWrapper :global(.cta.secondary:hover .icon-square svg) {
+  transform: rotate(5deg);
+}
+
+.aboutCtaWrapper :global(.cta.secondary .icon-square .material-symbols-outlined) {
+  font-size: 30px;
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.aboutCtaWrapper :global(.cta.secondary:hover .icon-square .material-symbols-outlined) {
+  transform: rotate(5deg);
+}
+
+.aboutCtaWrapper :global(.cta.secondary .icon-square-white) {
+  background: #fff;
+  color: #0a0a0a;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.aboutCtaWrapper :global(.cta.secondary .icon-square-white .material-symbols-outlined) {
+  color: #0a0a0a;
+}
+
+.aboutCtaWrapper :global(.cta.secondary > span:not(.icon-square)) {
+  background: var(--primary);
+  color: #fff;
+  border: 1px solid var(--primary);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.aboutCta :global(.icon-square) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.aboutCta :global(.icon-square-red) {
+  background: var(--primary);
+  color: #fff;
+}
+
+.aboutCta > :global(span:not(.icon-square)) {
+  padding: 14px 22px;
+  background: var(--primary);
+  display: inline-block;
+}
+
+.aboutCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(223, 31, 38, 0.35);
+}
+
+.aproposSection {
+  background: radial-gradient(circle at 25% 60%, rgba(223, 31, 38, 0.32), rgba(0, 0, 0, 0.9));
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+.aproposSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100px),
+    linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 150px),
+    linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, transparent 150px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aproposSection > :global(.container) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .aboutFeaturesCarousel {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 60px 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .aboutGrid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 0 20px !important;
+  }
+
+  .aboutLeft {
+    width: 100% !important;
+    order: 1;
+    display: none;
+  }
+
+  .aboutRight {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+
+  .aboutTag {
+    font-size: 14px !important;
+    margin-bottom: 12px !important;
+    color: rgba(224, 31, 38, 0.9) !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .aboutTitle {
+    font-size: 32px !important;
+    margin-bottom: 16px !important;
+    line-height: 1.3 !important;
+    color: #fff !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .aboutDescription {
+    font-size: 16px !important;
+    margin-bottom: 30px !important;
+    max-width: 100% !important;
+    line-height: 1.7 !important;
+    padding-right: 0 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .aboutCtaWrapper {
+    display: block !important;
+    visibility: visible !important;
+    margin-top: 0 !important;
+  }
+
+  .aboutFeaturesCarousel {
+    margin-bottom: 0 !important;
+  }
+
+  .aboutStats {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    flex-direction: row !important;
+    gap: 30px !important;
+    margin-bottom: 30px !important;
+    justify-content: center !important;
+  }
+
+  .aboutImages {
+    margin-top: 30px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 225px !important;
+    padding: 0 20px !important;
+  }
+
+  .aboutImageWrapper {
+    width: 170px !important;
+    position: absolute !important;
+    border: none !important;
+    min-height: 225px !important;
+    height: 225px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+    top: 0 !important;
+  }
+
+  .aboutImageWrapper:first-child {
+    position: absolute !important;
+    left: calc(50% - 170px - 15px) !important;
+    transform: translateX(0) !important;
+    width: 170px !important;
+    border: none !important;
+    z-index: 2 !important;
+  }
+
+  .aboutImageWrapper.aboutImageOverlap {
+    width: 170px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    left: calc(50% + 15px) !important;
+    transform: translateX(0) !important;
+    z-index: 1 !important;
+  }
+
+  .aboutImageWrapper img {
+    min-height: 225px !important;
+    height: 225px !important;
+    object-fit: cover !important;
+    width: 100% !important;
+  }
+
+  .aboutRight {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    gap: 16px !important;
+  }
+
+  .aboutTag {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+    color: rgba(224, 31, 38, 0.9) !important;
+  }
+
+  .aboutTitle {
+    font-size: 24px !important;
+    margin-bottom: 14px !important;
+    line-height: 1.3 !important;
+    color: #fff !important;
+  }
+
+  .aboutDescription {
+    font-size: 16px !important;
+    margin-bottom: 30px !important;
+    max-width: 100% !important;
+    line-height: 1.6 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .aboutFeaturesCarousel {
+    max-width: 356px !important;
+    width: 356px !important;
+    margin-left: 20px !important;
+    margin-right: auto !important;
+  }
+
+  .aboutFeaturesCarouselContainer {
+    width: 356px !important;
+    max-width: 356px !important;
+    padding: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .aboutFeaturesTrack {
+    padding: 0 !important;
+    gap: 16px !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    transform: none !important;
+  }
+
+  .aboutFeaturesTrack::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .aboutFeatureCard {
+    min-width: 150px !important;
+    width: 150px !important;
+    max-width: 150px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    height: 145px !important;
+    padding: 14px 12px 12px !important;
+    margin-right: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  
+
+  .aboutFeaturesCarouselContainer {
+    padding: 24px 20px;
+  }
+
+  .aproposSection {
+    padding: 60px 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutSection {
+    width: 100%;
+    padding: 50px 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+
+  .aboutGrid {
+    gap: 30px !important;
+    padding: 0 16px !important;
+  }
+
+  .aboutStats {
+    gap: 20px !important;
+    margin-bottom: 25px !important;
+  }
+
+  .aboutImages {
+    margin-top: 25px !important;
+    height: 200px !important;
+    padding: 0 16px !important;
+    
+  }
+
+  .aboutImageWrapper {
+    width: 140px !important;
+    min-height: 200px !important;
+    height: 200px !important;
+
+  }
+
+  .aboutImageWrapper:first-child {
+    left: calc(50% - 140px - 10px) !important;
+    width: 140px !important;
+  }
+
+  .aboutImageWrapper.aboutImageOverlap {
+    width: 140px !important;
+    left: calc(50% + 10px) !important;
+  }
+
+  .aboutImageWrapper img {
+    min-height: 200px !important;
+    height: 200px !important;
+    width: 100% !important;
+  }
+
+  .aboutTitle {
+    font-size: 24px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .aboutDescription {
+    font-size: 16px !important;
+    margin-bottom: 30px !important;
+    line-height: 1.7 !important;
+  }
+
+  .aboutFeaturesCarousel {
+    max-width: 324px !important;
+    width: 324px !important;
+    margin-left: 16px !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+  }
+
+  .aboutCtaWrapper {
+    margin-top: 0 !important;
+  }
+
+  .aboutFeaturesCarouselContainer {
+    width: 324px !important;
+    max-width: 324px !important;
+    padding: 18px 16px !important;
+    overflow: hidden !important;
+  }
+
+  .aboutFeaturesTrack {
+    gap: 12px !important;
+    padding: 0 !important;
+    transform: none !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    width: 100% !important;
+  }
+
+  .aboutFeaturesTrack::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .aboutFeatureCard {
+    min-width: 140px !important;
+    width: 140px !important;
+    max-width: 140px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+    scroll-snap-stop: always !important;
+    height: 135px !important;
+    padding: 12px 10px 10px !important;
+    margin-right: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
+@media (max-width: 768px) {
+  /* forcer l'affichage du CTA */
+  .aboutCtaWrapper {
+    display: flex !important;
+    visibility: visible !important;
+    margin-top: 20px !important;
+    justify-content: left !important;
+    position: relative !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
+
+

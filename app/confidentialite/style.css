@@ -1,0 +1,205 @@
+.confidentialite-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+  color: #ffffff;
+}
+
+.confidentialite-page .brand a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.confidentialite-main {
+  flex: 1;
+  padding: 120px 0 80px;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.confidentialite-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confidentialite-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -0.8px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.confidentialite-section {
+  margin-bottom: 60px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.confidentialite-section:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(235, 50, 58, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.confidentialite-section h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.confidentialite-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #eb323a 0%, rgba(235, 50, 58, 0) 100%);
+  border-radius: 0;
+}
+
+.confidentialite-section p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 24px;
+  color: #e3e3e3;
+  font-weight: 300;
+}
+
+.confidentialite-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 32px 0;
+}
+
+.confidentialite-section ul li {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #e3e3e3;
+  font-weight: 300;
+  padding-left: 36px;
+  position: relative;
+  margin-bottom: 16px;
+  transition: color 0.2s ease;
+}
+
+.confidentialite-section ul li:hover {
+  color: #ffffff;
+}
+
+.confidentialite-section ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #eb323a;
+  font-size: 18px;
+  line-height: 1.9;
+  top: 0;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.confidentialite-section ul li:hover::before {
+  transform: translateX(4px);
+}
+
+.confidentialite-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Effets de gradient subtils */
+.confidentialite-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(180deg, rgba(235, 50, 58, 0.03) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.confidentialite-main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(0deg, rgba(235, 50, 58, 0.03) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .confidentialite-content {
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  .confidentialite-content h1 {
+    font-size: 22px;
+    margin-bottom: 50px;
+    white-space: nowrap;
+  }
+
+  .confidentialite-section {
+    padding: 28px 24px;
+    margin-bottom: 40px;
+  }
+
+  .confidentialite-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .confidentialite-section h2::after {
+    width: 40px;
+    height: 2px;
+  }
+
+  .confidentialite-section p,
+  .confidentialite-section ul li {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .confidentialite-section ul li {
+    padding-left: 28px;
+    margin-bottom: 14px;
+  }
+
+  .confidentialite-main {
+    padding: 100px 0 60px;
+  }
+}
+

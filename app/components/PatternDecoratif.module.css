@@ -1,0 +1,109 @@
+/* =====================================
+   PATTERN DÉCORATIF – FULL WIDTH
+===================================== */
+
+.patternContainer {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+/* Wrapper = hauteur contrôlée */
+.patternWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* ✅ DESKTOP HEIGHT */
+  overflow: hidden;
+}
+
+/* Image */
+.patternImage {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.35);
+  transform: scale(1.1);
+}
+
+/* Gradient décoratif */
+.patternGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* =====================================
+   MOBILE (≤ 768px)
+===================================== */
+
+@media (max-width: 768px) {
+ 
+  .patternContainer {
+    width: 100vw;
+    margin: 0 auto;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .patternWrapper {
+    height: 300px; /* ✅ SAME HEIGHT MOBILE */
+  }
+
+  .patternImage {
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+    filter: brightness(0.45);
+  }
+
+  .patternGradient {
+    height: 90px;
+    opacity: 0.25; /* plus clean mobile */
+  }
+}
+
+/* =====================================
+   SMALL MOBILE (≤ 480px)
+===================================== */
+
+@media (max-width: 480px) {
+  .patternContainer {
+    width: 100vw;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .patternWrapper {
+    height: 300px; /* ✅ toujours 300px */
+  }
+ 
+  .patternGradient {
+    height: 70px;
+    opacity: 0.2;
+  }
+}

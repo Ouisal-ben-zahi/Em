@@ -1,0 +1,718 @@
+.projetsSection {
+  background: #000000;
+  background-attachment: fixed;
+  position: relative;
+  overflow: visible;
+  overscroll-behavior: contain;
+  padding-top: 0;
+  padding-bottom: 0px;
+  margin-top: -1px;
+  margin-bottom: -80px;
+  clip-path: none;
+  z-index: 1;
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.projetsSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 50px, transparent 100px),
+    linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 200px),
+    linear-gradient(to left, rgba(0, 0, 0, 0.85) 0%, transparent 200px),
+    radial-gradient(ellipse 600px 400px at 30% 40%, rgba(0, 0, 0, 0.4) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 350px at 70% 60%, rgba(0, 0, 0, 0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 450px 300px at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.projetsSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 400px 250px at 20% 70%, rgba(0, 0, 0, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 350px 200px at 80% 30%, rgba(0, 0, 0, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projetsSection > :global(.container) {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.projectsSectionHeader {
+  margin-bottom: 40px;
+  padding-left: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.projectsSectionHeader h2 {
+   font-size: 38px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 20px 0;
+  margin-left: -2px;
+  text-transform: uppercase;
+}
+
+.projectsSubtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.projectsList .projectItemHorizontal {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.projectsHorizontalCarousel {
+  display: none;
+}
+
+.projectsHorizontalTrack {
+  overflow: hidden;
+  width: 1069.98px;
+  max-width: 1069.98px;
+  height: 650px;
+  min-height: 650px;
+  position: relative;
+  flex: 0 0 auto;
+  cursor: default;
+  touch-action: none;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  will-change: transform;
+  pointer-events: auto;
+}
+
+.projectsHorizontalTrack * {
+  pointer-events: auto;
+}
+
+.projectsCarouselTrack {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: calc(650px * var(--projects-count, 2));
+  will-change: transform;
+  align-items: center;
+}
+
+.projectItemHorizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  height: 620px;
+}
+
+.projectItemHorizontal.slideFromBottom {
+  animation: slideUpFromBottomItem 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.projectItemHorizontal.slideFromBottom .projectContent,
+.projectItemHorizontal.slideFromBottom .projectImageWrapper {
+  animation: slideUpFromBottomContent 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.projectItemHorizontal.slideFromTop {
+  animation: slideDownFromTopItem 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.projectItemHorizontal.slideFromTop .projectContent,
+.projectItemHorizontal.slideFromTop .projectImageWrapper {
+  animation: slideDownFromTopContent 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.projectItemHorizontal.imageRight .projectContent {
+  order: 1;
+}
+
+.projectItemHorizontal.imageRight .projectImageWrapper {
+  order: 2;
+}
+
+.projectItemHorizontal.imageLeft .projectContent {
+  order: 2;
+}
+
+.projectItemHorizontal.imageLeft .projectImageWrapper {
+  order: 1;
+}
+
+@keyframes slideUpFromBottomItem {
+  0% {
+    opacity: 0;
+    transform: translateY(140px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFromBottomContent {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownFromTopItem {
+  0% {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownFromTopContent {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projectItemHorizontal .projectContent {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 40px;
+  padding-bottom: 50px;
+  border-radius: 0;
+  width: 50%;
+  height: 534.99px;
+  flex-shrink: 0;
+  overflow: visible;
+  margin: 0;
+}
+
+.projectItemHorizontal .projectImageWrapper {
+  aspect-ratio: 1;
+  width: 50% !important;
+  height: 534.99px !important;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.projectItemHorizontal .projectImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 1;
+}
+
+.projectItem {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: flex-start;
+  height: 50%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.projectItem:nth-child(1) {
+  z-index: 2;
+  position: relative;
+}
+
+.projectItem:nth-child(2) {
+  z-index: 1;
+  position: relative;
+}
+
+.imageRight .projectContent {
+  order: 1;
+}
+
+.imageRight .projectImageWrapper {
+  order: 2;
+}
+
+.imageLeft .projectContent {
+  order: 2;
+}
+
+.imageLeft .projectImageWrapper {
+  order: 1;
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #fff;
+  padding: 30px;
+  color: #0a0a0a;
+  aspect-ratio: 1 / 1;
+  width: 50%;
+  height: 500px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.projectTitle {
+  font-size: 36px;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.projectSubtitle {
+  font-size: 36px;
+  color: #5a5a5a;
+  margin: 0;
+  font-weight: 400;
+}
+
+.projectFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.projectFeatures li {
+  color: #5a5a5a;
+  font-size: 16px;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 24px;
+}
+
+.projectFeatures li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.projectAction {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  border: none !important;
+  margin-top: 40px !important;
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.projectAction:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.projectAction :global(.btn),
+.projectAction :global(.btn.primary) {
+  border: none !important;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.projectAction :global(.icon-square) {
+  width: 46px;
+  height: 46px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  outline: none !important;
+}
+
+.projectAction:hover :global(.icon-square) {
+  transform: scale(1.05);
+}
+
+.projectAction :global(.icon-square img) {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.3s ease;
+}
+
+.projectAction:hover :global(.icon-square img) {
+  transform: rotate(5deg);
+}
+
+.projectAction :global(.icon-square-white) {
+  background: #000;
+  color: #fff;
+  border: none !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+  outline: none !important;
+}
+
+.projectAction :global(.icon-square-white img) {
+  filter: brightness(0) invert(1);
+}
+
+.projectAction > :global(span:not(.icon-square)) {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-left: none;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  padding: 14px 26px 15px 26px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.projectAction:hover > :global(span:not(.icon-square)) {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.projectImageWrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 0;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.projectDownloadBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  background: #fff;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 44px;
+  height: 44px;
+}
+
+.projectDownloadBtn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.projectDownloadBtn img {
+  width: 24px;
+  height: 24px;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7151%) hue-rotate(349deg) brightness(92%) contrast(87%);
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.downloadText {
+  position: absolute;
+  top: 68px;
+  left: 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideFromTop {
+  animation: slideDownFromTopItem 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.slideFromBottom {
+  animation: slideUpFromBottomItem 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .projetsSection {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 40px 20px !important;
+    margin: 0 !important;
+  }
+
+  .projetsSection > :global(.container) {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .projectsSectionHeader {
+    padding-left: 0 !important;
+    margin-bottom: 30px !important;
+  }
+
+  .projectsSectionHeader h2 {
+    font-size: 24px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .projectsSubtitle {
+    font-size: 24px !important;
+    line-height: 1.5 !important;
+  }
+  .projectImageWrapper {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    order: 2 !important;
+    min-height: 250px !important;
+  }
+
+  .projectItemHorizontal .projectImageWrapper {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    order: 2 !important;
+    min-height: 250px !important;
+  }
+  
+  /* Liste devient carousel horizontal */
+  .projectsList {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+
+  /* cacher scrollbar */
+  .projectsList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projectsList {
+    scrollbar-width: none;
+  }
+
+  /* Chaque projet = slide */
+  .projectItemHorizontal {
+    flex: 0 0 90% !important;
+    width: 90% !important;
+    scroll-snap-align: center;
+    height: auto !important;
+  }
+
+  /* Contenu en colonne */
+  .projectItemHorizontal {
+    flex-direction: column !important;
+  }
+
+  /* Image au-dessus */
+  .projectItemHorizontal .projectImageWrapper {
+    width: 100% !important;
+    height: 260px !important;
+    order: 1 !important;
+  }
+
+  .projectItemHorizontal .projectImage {
+    object-fit: cover !important;
+  }
+
+  /* Contenu en dessous */
+  .projectItemHorizontal .projectContent {
+    width: 100% !important;
+    height: auto !important;
+    padding: 24px 20px !important;
+    order: 2 !important;
+  }
+
+  /* Désactiver logique imageLeft / imageRight */
+  .projectItemHorizontal.imageLeft .projectContent,
+  .projectItemHorizontal.imageRight .projectContent {
+    order: 2 !important;
+  }
+
+  .projectItemHorizontal.imageLeft .projectImageWrapper,
+  .projectItemHorizontal.imageRight .projectImageWrapper {
+    order: 1 !important;
+  }
+
+ 
+ 
+ 
+}
+
+@media (max-width: 480px) {
+  .projetsSection {
+    padding: 30px 15px !important;
+  }
+
+  .projectsSectionHeader h2 {
+    font-size: 24px !important;
+  }
+
+  .projectsSubtitle {
+    font-size: 16px !important;
+  }
+
+  .projectItemHorizontal .projectContent {
+    padding: 25px 15px !important;
+  }
+
+  .projectTitle {
+    font-size: 20px !important;
+  }
+
+  .projectSubtitle {
+    font-size: 20px !important;
+  }
+
+  .projectFeatures li {
+    font-size: 14px !important;
+  }
+
+  .projectAction > :global(span:not(.icon-square)) {
+    font-size: 12px !important;
+    padding: 10px 18px 11px 18px !important;
+  }
+
+  .projectDownloadBtn {
+    width: 36px !important;
+    height: 36px !important;
+    top: 12px !important;
+    left: 12px !important;
+  }
+
+  .projectDownloadBtn img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .downloadText {
+    font-size: 14px !important;
+    top: 54px !important;
+    left: 12px !important;
+  }
+}
+
+
+

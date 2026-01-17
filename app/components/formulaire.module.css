@@ -1,0 +1,422 @@
+/* ==================================================
+   FORMULAIRE SECTION
+================================================== */
+.formulaireSection {
+  position: relative;
+  overflow: visible;
+  padding: 80px 0;
+}
+
+.formulaireSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-image: url('/image.png');
+  background-size: 130% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  filter: brightness(0.5);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.formulaireSection::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-image: url('/image.png');
+  background-size: 130% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transform: scaleY(-1);
+  opacity: 0.5;
+  filter: brightness(0.5);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==================================================
+   CONTAINER (90% / 1400px)
+================================================== */
+.formulaireSection > :global(.container) {
+  width: 90%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.formulaireContainer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+.formulaireHeader {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.formulaireTitle {
+  font-size: 38px;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.formulaireDescription {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* ==================================================
+   GRID (50% / 50%)
+================================================== */
+.formulaireGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 600px;
+}
+
+/* ==================================================
+   LEFT SECTION (Image)
+================================================== */
+.formulaireLeft {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.formulaireImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100px 100%, 0 calc(100% - 100px));
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+}
+
+.formulaireImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==================================================
+   RIGHT SECTION (Form with Red Background)
+================================================== */
+.formulaireRight {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+/* Fond rouge derrière le formulaire */
+.formulaireRight::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  z-index: 0;
+  border-radius: 0;
+}
+
+.formulairePanel {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 40px 35px;
+  padding-top: 70px;
+  padding-left: 90px;
+  clip-path: polygon(0 0, calc(100% - 100px) 0, 100% 100px, 100% 100%, 0 100%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* ==================================================
+   FORM FIELDS
+================================================== */
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 38px;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.formulaireField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+}
+
+.formulaireField::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 1px;
+  background: rgba(223, 31, 38, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.formulaireField:has(input:focus)::after,
+.formulaireField:has(select:focus)::after,
+.formulaireField:has(textarea:focus)::after {
+  background: rgba(223, 31, 38, 0.5);
+}
+
+.formulaireField:has(select)::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(300px - 6px);
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23df1f26' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  transform: translateY(-100%);
+  margin-bottom: -6px;
+}
+
+.formulaireField label {
+  display: none;
+}
+
+.formulaireInput {
+  border: none;
+  border-bottom: 1px solid rgba(223, 31, 38, 0.3);
+  border-bottom-width: 0;
+  border-bottom-style: solid;
+  border-image: linear-gradient(to right, rgba(223, 31, 38, 0.3) 0%, rgba(223, 31, 38, 0.3) 380px, transparent 380px, transparent 100%) 1;
+  padding: 8px 0;
+  font-size: 14px;
+  background: transparent;
+  color: #0a0a0a;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  position: relative;
+  width: 100%;
+}
+
+.formulaireInput::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 1px;
+  background: rgba(223, 31, 38, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.formulaireInput:focus::after {
+  background: rgba(223, 31, 38, 0.5);
+}
+
+.formulaireInput::placeholder {
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.formulaireSelect {
+  cursor: pointer;
+  appearance: none;
+  background-image: none;
+  padding-right: 20px;
+  border-bottom: none;
+  transition: all 0.2s ease;
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  position: relative;
+}
+
+.formulaireSelect:not([value=""]) {
+  color: rgba(10, 10, 10, 0.5);
+}
+
+.formulaireSelect option {
+  color: #0a0a0a;
+  text-transform: none;
+  font-weight: normal;
+}
+
+.formulaireTextarea {
+  min-height: 90px;
+  resize: vertical;
+  border-bottom: none;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.formulaireTextarea::placeholder {
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.formulaireSubmit {
+  margin-top: 0;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  align-self: flex-start;
+  width: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+@media (max-width: 1024px) {
+  .formulaireSection > :global(.container) {
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formulaireGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .formulairePanel {
+    padding: 35px 30px;
+    padding-top: 50px;
+    padding-left: 40px;
+    clip-path: none;
+    max-width: 100%;
+  }
+
+  .formulaireImageWrapper {
+    clip-path: none;
+    max-width: 100%;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formulaireSection > :global(.container) {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .formulaireHeader {
+    margin-bottom: 40px;
+  }
+
+  .formulaireTitle {
+    font-size: 36px;
+  }
+
+  .formulaireDescription {
+    font-size: 15px;
+  }
+
+  .formulaireGrid {
+    gap: 30px;
+  }
+
+  .formulairePanel {
+    padding: 30px 24px;
+    padding-top: 40px;
+    padding-left: 30px;
+  }
+
+  .formulaire {
+    gap: 28px;
+  }
+
+  .formulaireField::after {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .formulaireImageWrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .formulaireTitle {
+    font-size: 24px;
+  }
+
+  .formulaireDescription {
+    font-size: 16px;
+  }
+
+  .formulairePanel {
+    padding: 24px 20px;
+    padding-top: 35px;
+    padding-left: 24px;
+  }
+
+  .formulaire {
+    gap: 24px;
+  }
+
+  .formulaireInput,
+  .formulaireSelect,
+  .formulaireTextarea {
+    font-size: 14px;
+  }
+
+  .formulaireImageWrapper {
+    height: 300px;
+  }
+}
