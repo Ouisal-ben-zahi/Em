@@ -47,8 +47,8 @@ export default function NosProjets() {
 
   return (
     <section id="projets" className={`section ${styles.projetsSection}`}>
-      <CloudRed top="10%" right="-30%" width="800px" height="600px" zIndex={1} />
-      <CloudRed bottom="30%" left="-30%" width="900px" height="700px" zIndex={1} />
+      <CloudRed top="10%" right="-30%" width="800px" height="350px" zIndex={1} />
+      <CloudRed bottom="30%" left="-30%" width="800px" height="700px" zIndex={1} />
       <div className="container">
         <div className={styles.projectsSectionHeader}>
           <h2>Nos projets disponibles sur plan</h2>

@@ -369,7 +369,10 @@
     max-height: 100vh;
     overflow: hidden;
   }
-
+.accent {
+  color: black;
+  font-weight: 550;
+}
   .heroContentWrapper {
     height: 100%;
     max-height: 100%;

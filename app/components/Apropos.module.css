@@ -356,6 +356,7 @@
   flex-shrink: 0;
   cursor: pointer;
   transform-style: preserve-3d;
+  justify-content: flex-end;
 }
 
 .aboutFeatureCard.entering {
@@ -478,10 +479,11 @@
 
 .featureIcon :global(.material-symbols-sharp) {
   font-size: 45px;
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
   line-height: 1;
+ min-height: 80px;
 }
 
 .aboutFeatureCard.active .featureIcon {
@@ -530,7 +532,7 @@
   text-transform: uppercase;
   letter-spacing: 0.02em;
   border: none;
-  color: #fff;
+  color: #ffff;
   background: var(--primary);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   align-self: flex-start;
@@ -969,7 +971,7 @@
 
   .aboutTitle {
     font-size: 24px !important;
-    margin-bottom: 14px !important;
+    margin-bottom: 12px !important;
   }
 
   .aboutDescription {

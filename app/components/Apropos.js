@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import CloudRed from "./CloudRed";
 import PatternDecoratif from "./PatternDecoratif";
 import styles from "./Apropos.module.css";
 
@@ -12,8 +11,8 @@ function AboutFeaturesCarousel() {
     const slides = [
         { id: 1, text: "Promoteurs audités", icon: "file" },
         { id: 2, text: "Contrats contrôlés notaire", icon: "doc" },
-        { id: 3, text: "Paiements par avancement chantier", icon: "money" },
-        { id: 4, text: "Rapport photo/vidéo mensuel", icon: "chart" },
+        { id: 3, text: "Suivi des paiements", icon: "money" },
+        { id: 4, text: "Rapport photo/vidéo", icon: "chart" },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import CloudRed from "../components/CloudRed";
 import "./style.css";
+import Formulaire from "../components/Formulaire";
 
 /* ==================================================
    CONSTANTES
