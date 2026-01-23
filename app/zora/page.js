@@ -12,7 +12,7 @@ import Formulaire from "../components/Formulaire";
 /* ==================================================
    CONSTANTES
 ================================================== */
-const zoraHeroBg = "/imglanding/zora-hero.png";
+const zoraHeroBg = "/imglanding/zora-carousel-3.png";
 
 /* ==================================================
    CAROUSEL – THUMBNAILS ARCHITECTURE

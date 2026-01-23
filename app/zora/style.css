@@ -88,8 +88,8 @@
   width: var(--container-width);
   max-width: var(--container-max);
   text-align: center;
-  font-size: 38px;
-  font-weight: 300;
+  font-size: 28px;
+  font-weight: 400;
   line-height: 52px;
   color: var(--white);
   text-shadow: 0 2px 20px rgba(0,0,0,.8);
@@ -448,6 +448,12 @@
     height: auto;
     padding-left: 0;
     margin-top: 20px;
+  }
+
+  /* Grille 2x2 pour les cartes en mobile */
+  .architecture-content .group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   /* Animation horizontale pour mobile */

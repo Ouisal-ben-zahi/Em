@@ -823,8 +823,35 @@
 
 
 
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+  .accent {
+    position: relative;
+    display: inline-block;
+    background: #ffffff;
+    color: #d40000;
+    padding: 0.25em 0.7em;
+    transform: skew(-12deg);
+  }
 
+  /* Redresser le texte */
+  .accent::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skew(12deg);
+    color: #d40000;
+    font-weight: 800;
+  }
 
+  /* Masquer le texte original */
+  .accent {
+    color: red;
+  }
+}
 
 
 

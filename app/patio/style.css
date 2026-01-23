@@ -450,6 +450,12 @@
     margin-top: 20px;
   }
 
+  /* Grille 2x2 pour les cartes en mobile */
+  .architecture-content .group {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
   /* Animation horizontale pour mobile */
   @keyframes slideInHorizontal {
     from { opacity: 0; transform: translateY(-10px); }
