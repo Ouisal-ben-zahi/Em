@@ -1,6 +1,5 @@
 "use client";
 
-import { memo } from "react";
 // Imports simplifiés - logique du carousel supprimée
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +42,7 @@ const projects = [
   },
 ];
 
-function NosProjets() {
+export default function NosProjets() {
   // Logique du carousel supprimée car les projets sont maintenant affichés en colonne statique
 
   return (
@@ -108,6 +107,4 @@ function NosProjets() {
     </section>
   );
 }
-
-export default memo(NosProjets);
 

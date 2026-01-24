@@ -33,17 +33,8 @@ export default function MaterialSymbolsLoader() {
       });
     };
 
-    // Charger après un délai plus long pour ne pas bloquer le rendu initial
-    // Utiliser requestIdleCallback si disponible, sinon setTimeout
-    const loadWhenIdle = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadMaterialSymbols, { timeout: 2000 });
-      } else {
-        setTimeout(loadMaterialSymbols, 1000);
-      }
-    };
-    
-    const timeoutId = setTimeout(loadWhenIdle, 500);
+    // Charger après un court délai pour ne pas bloquer le rendu initial
+    const timeoutId = setTimeout(loadMaterialSymbols, 100);
     
     return () => clearTimeout(timeoutId);
   }, []);
