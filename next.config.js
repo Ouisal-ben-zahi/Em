@@ -22,10 +22,13 @@ const nextConfig = {
         moduleIds: 'deterministic',
         runtimeChunk: 'single',
         minimize: true,
+        minimizer: [
+          ...(config.optimization.minimizer || []),
+        ],
         splitChunks: {
           chunks: 'all',
           minSize: 20000,
-          maxSize: 244000,
+          maxSize: 200000, // Réduit de 244000 à 200000 pour des chunks plus petits
           cacheGroups: {
             default: {
               minChunks: 2,
@@ -53,6 +56,19 @@ const nextConfig = {
               chunks: 'all',
               enforce: true,
               priority: 20,
+            },
+            // Séparer les grandes bibliothèques pour un meilleur caching
+            react: {
+              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              name: 'react',
+              priority: 20,
+              reuseExistingChunk: true,
+            },
+            next: {
+              test: /[\\/]node_modules[\\/]next[\\/]/,
+              name: 'next',
+              priority: 20,
+              reuseExistingChunk: true,
             },
           },
         },
