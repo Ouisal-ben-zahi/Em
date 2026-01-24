@@ -234,8 +234,9 @@ export default function Faq() {
                       alt="Drapeau du Maroc"
                       width={1200}
                       height={800}
-                      quality={100}
-                      unoptimized={true}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 80vw"
+                      loading="lazy"
                       className={styles.faqFlagImage}
                       style={{
                         width: '100%',

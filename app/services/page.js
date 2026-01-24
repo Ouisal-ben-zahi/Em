@@ -247,7 +247,9 @@ export default function ServicesPage() {
                       width={800} 
                       height={400} 
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      quality={95}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -272,7 +274,9 @@ export default function ServicesPage() {
                       width={800} 
                       height={400} 
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      quality={95}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -297,7 +301,9 @@ export default function ServicesPage() {
                       width={800} 
                       height={400} 
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      quality={95}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -322,7 +328,9 @@ export default function ServicesPage() {
                       width={800} 
                       height={400} 
                       style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                      quality={95}
+                      quality={85}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                 </div>

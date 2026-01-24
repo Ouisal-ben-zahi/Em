@@ -48,6 +48,9 @@ function PatioFeaturesCarousel({ onImageSelect, selectedImage }) {
                 width={120}
                 height={120}
                 className="architecture-thumbnail-image"
+                quality={75}
+                sizes="(max-width: 768px) 170px, 140px"
+                loading="lazy"
               />
             </div>
           );
@@ -79,8 +82,9 @@ export default function PatioPage() {
             src={patioHeroBg}
             width={1920}
             height={1080}
-            quality={100}
+            quality={85}
             priority
+            sizes="100vw"
             style={{
               width: "100vw",
               height: "100vh",
@@ -119,7 +123,9 @@ export default function PatioPage() {
               width={900}
               height={520}
               className="architecture-image-img"
-              priority
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 900px"
+              loading="lazy"
               key={mainImage}
             />
           </div>

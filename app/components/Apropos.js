@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import PatternDecoratif from "./PatternDecoratif";
 import styles from "./Apropos.module.css";
 
@@ -162,10 +163,10 @@ export default function Apropos() {
                     </div>
                     <div className={styles.aboutImages}>
                         <div className={styles.aboutImageWrapper}>
-                            <img src={aboutFirstPlanImg} alt="GOLD GARDEN" width={800} height={500} style={{ width: "100%", height: "auto" }} quality={95} />
+                            <Image src={aboutFirstPlanImg} alt="GOLD GARDEN" width={800} height={500} quality={85} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" style={{ width: "100%", height: "auto" }} />
                         </div>
                         <div className={`${styles.aboutImageWrapper} ${styles.aboutImageOverlap}`}>
-                            <img src={patioImg} alt="Résidence PATIO" width={800} height={500} style={{ width: "100%", height: "auto" }} quality={95} />
+                            <Image src={patioImg} alt="Résidence PATIO" width={800} height={500} quality={85} sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" style={{ width: "100%", height: "auto" }} />
                         </div>
                     </div>
                 </div>

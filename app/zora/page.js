@@ -78,8 +78,9 @@ export default function ZoraPage() {
             src={zoraHeroBg}
             width={1920}
             height={1080}
-            quality={100}
+            quality={85}
             priority
+            sizes="100vw"
             style={{
               width: "100vw",
               height: "100vh",
@@ -118,7 +119,9 @@ export default function ZoraPage() {
               width={900}
               height={520}
               className="architecture-image-img"
-              priority
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 900px"
+              loading="lazy"
               key={mainImage}
             />
           </div>

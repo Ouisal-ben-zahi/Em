@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Optimisation du JavaScript - cibler des navigateurs modernes
+  // SWC est configuré via .swcrc pour cibler ES2022
+  swcMinify: true,
   // Optimisation des images
   images: {
     formats: ['image/avif', 'image/webp'],

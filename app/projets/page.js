@@ -169,7 +169,9 @@ export default function ProjetsPage() {
                     width={1200} 
                     height={1600} 
                     className="project-image"
-                    quality={95}
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    loading="lazy"
                   />
                 </div>
               </div>
