@@ -12,7 +12,7 @@ export default function Hero() {
     const message = encodeURIComponent("Bonjour, je souhaite obtenir plus d'informations sur vos projets immobiliers.");
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
-  const heroImg = "/imglanding/IMG_1589 copy.png";
+  const heroImg = "/imglanding/IMG_1589 copy.webp";
   
 const heroHighlights = [
   "Promoteurs\nvérifiés",

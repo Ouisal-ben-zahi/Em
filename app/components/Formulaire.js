@@ -7,7 +7,7 @@ import CloudRed from "./CloudRed";
 import Image from "next/image";
 import styles from "./formulaire.module.css";
 
-const leadFormImg = "/imglanding/3.png";
+const leadFormImg = "/imglanding/5w.webp";
 
 function LeadForm() {
   const [formData, setFormData] = useState({

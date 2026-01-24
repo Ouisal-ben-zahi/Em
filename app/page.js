@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
@@ -16,9 +17,22 @@ import Hero from "./components/Hero";
 import Apropos from "./components/Apropos";
 import NosProjets from "./components/NosProjet";
 import PatternDecoratif from "./components/PatternDecoratif";
-import Processus from "./components/processus";
-import Formulaire from "./components/Formulaire";
-import Faq from "./components/faq";
+
+// Charger les composants non critiques de manière asynchrone pour réduire le blocage du rendu
+const Processus = dynamic(() => import("./components/processus"), {
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
+});
+
+const Formulaire = dynamic(() => import("./components/Formulaire"), {
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
+});
+
+const Faq = dynamic(() => import("./components/faq"), {
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
+});
 
 
 const stats = [

@@ -20,14 +20,14 @@ const patioHeroBg = "/imglanding/11.webp";
 ================================================== */
 function PatioFeaturesCarousel({ onImageSelect, selectedImage }) {
   const slides = [
-    { id: 1, image: "/imglanding/4.png", alt: "Vue du projet Patio" },
-    { id: 2, image: "/imglanding/10.png", alt: "Vue du projet Patio" },
-    { id: 3, image: "/imglanding/3.png", alt: "Vue du projet Patio" },
-    { id: 4, image: "/imglanding/6.jpg", alt: "Vue du projet Patio" },
-    { id: 5, image: "/imglanding/8.png", alt: "Vue du projet Patio" },
-    { id: 6, image: "/imglanding/5.jpg", alt: "Vue du projet Patio" },
-    { id: 7, image: "/imglanding/7.png", alt: "Vue du projet Patio" },
-    { id: 8, image: "/imglanding/1.png", alt: "Vue du projet Patio" },
+    { id: 1, image: "/imglanding/4.webp", alt: "Vue du projet Patio" },
+    { id: 2, image: "/imglanding/10.webp", alt: "Vue du projet Patio" },
+    { id: 3, image: "/imglanding/3.webp", alt: "Vue du projet Patio" },
+    { id: 4, image: "/imglanding/6.webp", alt: "Vue du projet Patio" },
+    { id: 5, image: "/imglanding/8.webp", alt: "Vue du projet Patio" },
+    { id: 6, image: "/imglanding/5.webp", alt: "Vue du projet Patio" },
+    { id: 7, image: "/imglanding/7.webp", alt: "Vue du projet Patio" },
+    { id: 8, image: "/imglanding/1.webp", alt: "Vue du projet Patio" },
   ];
 
   return (
@@ -65,7 +65,7 @@ function PatioFeaturesCarousel({ onImageSelect, selectedImage }) {
 ================================================== */
 export default function PatioPage() {
   const [mainImage, setMainImage] = useState(
-    "/imglanding/3.png"
+    "/imglanding/3.webp"
   );
 
   return (

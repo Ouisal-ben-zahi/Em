@@ -12,20 +12,20 @@ import Formulaire from "../components/Formulaire";
 /* ==================================================
    CONSTANTES
 ================================================== */
-const goldGardenHeroBg = "/imglanding/gold-garden-hero.png";
+const goldGardenHeroBg = "/imglanding/gold-garden-hero.webp";
 /* ==================================================
    CAROUSEL – THUMBNAILS ARCHITECTURE
 ================================================== */
 function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
   const slides = [
-    { id: 1, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
-    { id: 2, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
-    { id: 3, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue panoramique du projet Gold Garden" },
-    { id: 4, image: "/imglanding/gold-garden-carousel-4.png", alt: "Détails architecturaux du projet Gold Garden" },
-    { id: 5, image: "/imglanding/gold-garden-architecture.png", alt: "Architecture du projet Gold Garden - Vue d'ensemble" },
-    { id: 6, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
-    { id: 7, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
-    { id: 8, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue panoramique du projet Gold Garden" },
+    { id: 1, image: "/imglanding/gold-garden-carousel-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+    { id: 2, image: "/imglanding/gold-garden-carousel-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+    { id: 3, image: "/imglanding/gold-garden-carousel-3.webp", alt: "Vue panoramique du projet Gold Garden" },
+    { id: 4, image: "/imglanding/gold-garden-carousel-4.webp", alt: "Détails architecturaux du projet Gold Garden" },
+    { id: 5, image: "/imglanding/gold-garden-architecture.webp", alt: "Architecture du projet Gold Garden - Vue d'ensemble" },
+    { id: 6, image: "/imglanding/gold-garden-confort-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+    { id: 7, image: "/imglanding/gold-garden-confort-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+    { id: 8, image: "/imglanding/gold-garden-rooftop.webp", alt: "Vue panoramique du projet Gold Garden" },
   ];
 
   const handleKeyDown = (e, slide) => {
@@ -82,7 +82,7 @@ function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
 ================================================== */
 export default function GoldGardenPage() {
   const [mainImage, setMainImage] = useState(
-    "/imglanding/gold-garden-architecture.png"
+    "/imglanding/gold-garden-architecture.webp"
   );
 
   return (

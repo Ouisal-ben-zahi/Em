@@ -8,7 +8,7 @@ import styles from "./NosProjets.module.css";
 import zoomOutMapIcon from "../icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
 import downloadIcon from "../icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
 
-const gardenImg = "/imglanding/5.png";
+const gardenImg = "/imglanding/5w.webp";
 const patioImg = "/imglanding/11.webp";
 
 const projects = [

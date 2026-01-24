@@ -5,8 +5,8 @@ import Image from "next/image";
 import PatternDecoratif from "./PatternDecoratif";
 import styles from "./Apropos.module.css";
 
-const aboutFirstPlanImg = "/imglanding/8.png";
-const patioImg = "/imglanding/11.png";
+const aboutFirstPlanImg = "/imglanding/8.webp";
+const patioImg = "/imglanding/11.webp";
 
 function AboutFeaturesCarousel() {
     const slides = [
