@@ -120,37 +120,43 @@ function LeadForm() {
   return (
     <form className={styles.formulaire} onSubmit={handleSubmit}>
       <div className={styles.formulaireField}>
-        <label>Nom</label>
+        <label htmlFor="nom">Nom</label>
         <input 
           type="text" 
+          id="nom"
           name="nom"
           placeholder="NOM" 
           className={styles.formulaireInput}
           value={formData.nom}
           onChange={handleChange}
           required
+          aria-required="true"
         />
       </div>
       <div className={styles.formulaireField}>
-        <label>Téléphone / WhatsApp</label>
+        <label htmlFor="telephone">Téléphone / WhatsApp</label>
         <input 
-          type="text" 
+          type="tel" 
+          id="telephone"
           name="telephone"
           placeholder="TÉLÉPHONE / WHATSAPP" 
           className={styles.formulaireInput}
           value={formData.telephone}
           onChange={handleChange}
           required
+          aria-required="true"
         />
       </div>
       <div className={styles.formulaireField}>
-        <label>Projet</label>
+        <label htmlFor="projet">Projet</label>
         <select 
+          id="projet"
           name="projet"
           className={`${styles.formulaireInput} ${styles.formulaireSelect}`} 
           value={formData.projet}
           onChange={handleChange}
           required
+          aria-required="true"
         >
           <option value="" disabled>Sélectionner un projet</option>
           <option value="PATIO">PATIO Résidence</option>
@@ -159,9 +165,10 @@ function LeadForm() {
         </select>
       </div>
       <div className={styles.formulaireField}>
-        <label>Budget</label>
+        <label htmlFor="budget">Budget</label>
         <input 
           type="text" 
+          id="budget"
           name="budget"
           placeholder="BUDGET" 
           className={styles.formulaireInput}
@@ -170,24 +177,31 @@ function LeadForm() {
         />
       </div>
       <div className={styles.formulaireField}>
-        <label>Message</label>
+        <label htmlFor="message">Message</label>
         <textarea 
+          id="message"
           name="message"
           placeholder="MESSAGE" 
           className={`${styles.formulaireInput} ${styles.formulaireTextarea}`}
           value={formData.message}
           onChange={handleChange}
+          rows={4}
         ></textarea>
       </div>
       {submitStatus.message && (
-        <div style={{
-          padding: '12px',
-          marginBottom: '16px',
-          borderRadius: '4px',
-          backgroundColor: submitStatus.type === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
-          color: submitStatus.type === 'success' ? '#4caf50' : '#f44336',
-          fontSize: '14px'
-        }}>
+        <div 
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
+          style={{
+            padding: '12px',
+            marginBottom: '16px',
+            borderRadius: '4px',
+            backgroundColor: submitStatus.type === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
+            color: submitStatus.type === 'success' ? '#4caf50' : '#f44336',
+            fontSize: '14px'
+          }}
+        >
           {submitStatus.message}
         </div>
       )}
@@ -221,11 +235,13 @@ export default function Formulaire() {
             <div className={styles.formulaireImageWrapper}>
               <Image 
                 src={leadFormImg} 
-                alt="Résidence moderne" 
+                alt="Résidence moderne EM IMMO - Projet immobilier à Marrakech" 
                 width={800} 
                 height={600} 
                 className={styles.formulaireImage}
-                quality={95}
+                quality={85}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>

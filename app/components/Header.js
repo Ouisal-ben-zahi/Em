@@ -34,25 +34,26 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
       <div className={`${styles.container} ${styles.nav}`}>
         <div className={styles.brand}>
-          <Link href="/" onClick={closeMenu}>
-            <Image src={logoImg} alt="MOROCCO IMMOBILIER" width={180} height={60} className={styles.logoImg} />
+          <Link href="/" onClick={closeMenu} aria-label="Retour à l'accueil - EM IMMO">
+            <Image src={logoImg} alt="Logo EM IMMO - Entrepreneurs Morocco Immobilier" width={180} height={60} className={styles.logoImg} priority />
           </Link>
         </div>
-        <nav className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`}>
-          <Link href="/" className={pathname === "/" ? styles.active : ""} onClick={closeMenu}>Accueil</Link>
-          <Link href="/projets" className={pathname === "/projets" ? styles.active : ""} onClick={closeMenu}>Nos projets</Link>
-          <Link href="/services" className={pathname === "/services" ? styles.active : ""} onClick={closeMenu}>Services</Link>
-          <Link href="/contact" className={pathname === "/contact" ? styles.active : ""} onClick={closeMenu}>Contact</Link>
+        <nav className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksOpen : ""}`} aria-label="Navigation principale">
+          <Link href="/" className={pathname === "/" ? styles.active : ""} onClick={closeMenu} aria-current={pathname === "/" ? "page" : undefined}>Accueil</Link>
+          <Link href="/projets" className={pathname === "/projets" ? styles.active : ""} onClick={closeMenu} aria-current={pathname === "/projets" ? "page" : undefined}>Nos projets</Link>
+          <Link href="/services" className={pathname === "/services" ? styles.active : ""} onClick={closeMenu} aria-current={pathname === "/services" ? "page" : undefined}>Services</Link>
+          <Link href="/contact" className={pathname === "/contact" ? styles.active : ""} onClick={closeMenu} aria-current={pathname === "/contact" ? "page" : undefined}>Contact</Link>
         </nav>
         <div className={styles.navCta}>
           <button 
             className={`${styles.btnMenu} ${isMenuOpen ? styles.btnMenuOpen : ""}`} 
-            aria-label="Menu"
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMenuOpen}
             onClick={toggleMenu}
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
           </button>
         </div>
       </div>

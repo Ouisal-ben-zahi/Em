@@ -307,18 +307,12 @@ export default function Page() {
 
   return (
     <div className="page">
-      <main>
-        <Hero/>
-        <Apropos/>
-        <NosProjets />
-        <Processus />
-        <Formulaire />
-        <Faq/>
-
-
-      </main>
-
-     
+      <Hero/>
+      <Apropos/>
+      <NosProjets />
+      <Processus />
+      <Formulaire />
+      <Faq/>
     </div>
   );
 }

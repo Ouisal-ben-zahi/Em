@@ -18,27 +18,42 @@ const goldGardenHeroBg = "/imglanding/gold-garden-hero.png";
 ================================================== */
 function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
   const slides = [
-    { id: 1, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue du projet Gold Garden" },
-    { id: 2, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue du projet Gold Garden" },
-    { id: 3, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue du projet Gold Garden" },
-    { id: 4, image: "/imglanding/gold-garden-carousel-4.png", alt: "Vue du projet Gold Garden" },
-    { id: 5, image: "/imglanding/gold-garden-architecture.png", alt: "Vue du projet Gold Garden" },
-    { id: 6, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue du projet Gold Garden" },
-    { id: 7, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue du projet Gold Garden" },
-    { id: 8, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue du projet Gold Garden" },
+    { id: 1, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+    { id: 2, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+    { id: 3, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue panoramique du projet Gold Garden" },
+    { id: 4, image: "/imglanding/gold-garden-carousel-4.png", alt: "Détails architecturaux du projet Gold Garden" },
+    { id: 5, image: "/imglanding/gold-garden-architecture.png", alt: "Architecture du projet Gold Garden - Vue d'ensemble" },
+    { id: 6, image: "/imglanding/gold-garden-carousel-1.jpg", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+    { id: 7, image: "/imglanding/gold-garden-carousel-2.jpg", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+    { id: 8, image: "/imglanding/gold-garden-carousel-3.png", alt: "Vue panoramique du projet Gold Garden" },
   ];
 
+  const handleKeyDown = (e, slide) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onImageSelect(slide.image);
+    }
+  };
+
   return (
-    <section className="architecture-thumbnails-scroll">
-      <div className="architecture-thumbnails-list">
+    <section 
+      className="architecture-thumbnails-scroll"
+      aria-label="Carrousel d'images du projet Gold Garden"
+    >
+      <div className="architecture-thumbnails-list" role="list">
         {slides.map((slide) => {
           const isSelected = selectedImage === slide.image;
 
           return (
             <div
               key={slide.id}
+              role="listitem"
               className={`architecture-thumbnail-item ${isSelected ? "selected" : ""}`}
               onClick={() => onImageSelect(slide.image)}
+              onKeyDown={(e) => handleKeyDown(e, slide)}
+              tabIndex={0}
+              aria-label={`Sélectionner l'image ${slide.id}: ${slide.alt}`}
+              aria-pressed={isSelected}
             >
               <Image
                 src={slide.image}
@@ -46,6 +61,9 @@ function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
                 width={120}
                 height={120}
                 className="architecture-thumbnail-image"
+                loading="lazy"
+                quality={85}
+                sizes="(max-width: 768px) 170px, 140px"
               />
             </div>
           );
@@ -74,15 +92,16 @@ export default function GoldGardenPage() {
         {/* ==================================================
             HERO SECTION
         ================================================== */}
-        <section className="hero-image-wrapper">
+        <section className="hero-image-wrapper" aria-label="Section héro du projet Gold Garden">
           <Image
             className="element"
-            alt="Résidence Gold Garden - vue d'ensemble"
+            alt="Résidence Gold Garden - vue d'ensemble du projet immobilier haut de gamme à Marrakech"
             src={goldGardenHeroBg}
             width={1920}
             height={1080}
-            quality={100}
+            quality={90}
             priority
+            sizes="100vw"
             style={{
               width: "100vw",
               height: "100vh",
@@ -91,13 +110,13 @@ export default function GoldGardenPage() {
             }}
           />
 
-          <div className="hero-gradient-overlay"></div>
+          <div className="hero-gradient-overlay" aria-hidden="true"></div>
 
-          <p className="l-harmonie-entre">
+          <h1 className="l-harmonie-entre">
             L&#39;HARMONIE ENTRE LUMIÈRE,
             <br />
             NATURE ET ÉLÉGANCE
-          </p>
+          </h1>
         </section>
 
         {/* ==================================================
@@ -117,11 +136,12 @@ export default function GoldGardenPage() {
           <div className="architecture-main-image">
             <Image
               src={mainImage}
-              alt="Façade du projet Gold Garden"
+              alt="Vue principale du projet Gold Garden - Architecture moderne et durable"
               width={900}
               height={520}
               className="architecture-image-img"
-              priority
+              quality={85}
+              sizes="(max-width: 1024px) 100vw, (max-width: 1400px) 50vw, 900px"
               key={mainImage}
             />
           </div>
@@ -152,34 +172,43 @@ export default function GoldGardenPage() {
             ================================================== */}
             <div className="group">
 
-              <div className="layer-4">
-
-                <img
+              <div className="layer-4" role="article" aria-label="Parkings sécurisés">
+                <Image
                   className="parking-sign"
-                  alt="Parking"
+                  alt="Icône représentant un parking sécurisé"
                   src="https://c.animaapp.com/nd0FfKH2/img/parking-sign@2x.png"
+                  width={42}
+                  height={42}
+                  loading="lazy"
+                  quality={75}
                 />
                 <div className="text-wrapper-5">Parkings sécurisés</div>
               </div>
 
-              <div className="layer-5">
-
-                <img
+              <div className="layer-5" role="article" aria-label="Contrôle d'accès digitalisé">
+                <Image
                   className="img-2"
-                  alt="Contrôle d'accès"
+                  alt="Icône représentant un système de contrôle d'accès digitalisé"
                   src="https://c.animaapp.com/nd0FfKH2/img/air-purifier-gen@2x.png"
+                  width={42}
+                  height={42}
+                  loading="lazy"
+                  quality={75}
                 />
                 <div className="text-wrapper-5">
                   Contrôle d&apos;accès digitalisé
                 </div>
               </div>
 
-              <div className="layer-6">
-
-                <img
+              <div className="layer-6" role="article" aria-label="Ascenseurs modernes">
+                <Image
                   className="img-2"
-                  alt="Ascenseur"
+                  alt="Icône représentant un ascenseur moderne"
                   src="https://c.animaapp.com/nd0FfKH2/img/elevator@2x.png"
+                  width={42}
+                  height={42}
+                  loading="lazy"
+                  quality={75}
                 />
                 <div className="ascenseurs-moderne">
                   Ascenseurs
@@ -188,12 +217,15 @@ export default function GoldGardenPage() {
                 </div>
               </div>
 
-              <div className="layer-7">
-
-                <img
+              <div className="layer-7" role="article" aria-label="Espaces verts entretenus">
+                <Image
                   className="park"
-                  alt="Espaces verts"
+                  alt="Icône représentant des espaces verts entretenus"
                   src="https://c.animaapp.com/nd0FfKH2/img/park@2x.png"
+                  width={42}
+                  height={42}
+                  loading="lazy"
+                  quality={75}
                 />
                 <div className="text-wrapper-5">
                   Espaces verts entretenus
