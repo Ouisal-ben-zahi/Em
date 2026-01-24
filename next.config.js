@@ -20,7 +20,10 @@ const nextConfig = {
       config.optimization = {
         ...config.optimization,
         moduleIds: 'deterministic',
-        runtimeChunk: 'single',
+        // Optimiser le runtime chunk pour réduire sa taille
+        runtimeChunk: {
+          name: 'runtime',
+        },
         minimize: true,
         minimizer: [
           ...(config.optimization.minimizer || []),
@@ -28,7 +31,9 @@ const nextConfig = {
         splitChunks: {
           chunks: 'all',
           minSize: 20000,
-          maxSize: 200000, // Réduit de 244000 à 200000 pour des chunks plus petits
+          maxSize: 100000, // Réduit à 100KB pour des chunks plus petits et meilleur code splitting
+          maxAsyncRequests: 30,
+          maxInitialRequests: 25, // Réduit pour forcer un meilleur code splitting
           cacheGroups: {
             default: {
               minChunks: 2,
@@ -41,13 +46,6 @@ const nextConfig = {
               priority: -10,
               reuseExistingChunk: true,
               minChunks: 1,
-            },
-            // Séparer le runtime webpack dans un chunk plus petit
-            runtime: {
-              name: 'runtime',
-              minChunks: 1,
-              priority: 5,
-              reuseExistingChunk: true,
             },
             // Optimiser les CSS en les séparant pour réduire la chaîne de requêtes
             styles: {
@@ -70,27 +68,39 @@ const nextConfig = {
               priority: 20,
               reuseExistingChunk: true,
             },
+            // Séparer les autres dépendances pour réduire la taille du vendor chunk
+            common: {
+              minChunks: 2,
+              priority: 5,
+              reuseExistingChunk: true,
+            },
           },
         },
+        // Réduire la taille du runtime webpack
+        usedExports: true,
+        sideEffects: false,
       };
       
-      // Exclure regenerator-runtime si possible (pour navigateurs modernes)
-      // Note: Certaines dépendances peuvent encore en avoir besoin
+      // Optimiser les résolutions pour réduire la taille
       config.resolve.alias = {
         ...config.resolve.alias,
-        // Ne pas forcer l'exclusion car certaines dépendances peuvent en avoir besoin
       };
+      
+      // Optimiser les modules pour réduire la taille
+      config.optimization.concatenateModules = true;
     }
     return config;
   },
-  // Optimisation des images
+  // Optimisation des images - compression agressive pour réduire la taille
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    formats: ['image/avif', 'image/webp'], // AVIF en priorité (meilleure compression)
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Réduit les tailles inutiles
+    imageSizes: [16, 32, 48, 64, 96, 128, 256], // Réduit les tailles inutiles
+    minimumCacheTTL: 31536000, // Cache long terme
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Compression plus agressive
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',

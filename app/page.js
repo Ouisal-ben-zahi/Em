@@ -12,11 +12,22 @@ import { supabase } from "../lib/supabase";
 import zoomOutMapIcon from "./icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
 import downloadIcon from "./icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
 
-import CloudRed from "./components/CloudRed"
-import Hero from "./components/Hero";
-import Apropos from "./components/Apropos";
-import NosProjets from "./components/NosProjet";
-import PatternDecoratif from "./components/PatternDecoratif";
+// Lazy load des composants non critiques pour réduire la taille initiale du bundle
+const CloudRed = dynamic(() => import("./components/CloudRed"), {
+  ssr: false,
+});
+const Hero = dynamic(() => import("./components/Hero"), {
+  loading: () => <div style={{ minHeight: '100vh' }} aria-label="Chargement..." />
+});
+const Apropos = dynamic(() => import("./components/Apropos"), {
+  loading: () => <div style={{ minHeight: '400px' }} aria-label="Chargement..." />
+});
+const NosProjets = dynamic(() => import("./components/NosProjet"), {
+  loading: () => <div style={{ minHeight: '400px' }} aria-label="Chargement..." />
+});
+const PatternDecoratif = dynamic(() => import("./components/PatternDecoratif"), {
+  ssr: false,
+});
 
 // Charger les composants non critiques de manière asynchrone pour réduire le blocage du rendu
 // Les CSS seront chargés uniquement quand le composant est rendu côté client

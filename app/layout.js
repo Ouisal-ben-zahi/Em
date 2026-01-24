@@ -4,21 +4,24 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MaterialSymbolsLoader from "./components/MaterialSymbolsLoader";
 
-// Réduire le nombre de poids pour optimiser la taille des polices
+// Optimisation des polices - réduire au minimum nécessaire pour économiser ~5MB
+// Utilisation de variable fonts pour Plus Jakarta Sans (plus efficace)
 const montserrat = Montserrat({ 
   subsets: ["latin"], 
-  weight: ["400", "500", "600", "700"], // Réduit de 5 à 4 poids
-  display: "swap",
+  weight: ["400", "500", "600", "700"], // Poids minimaux nécessaires
+  display: "optional", // Utilise optional au lieu de swap pour éviter le FOIT et réduire les téléchargements
   preload: true,
-  adjustFontFallback: true
+  adjustFontFallback: true,
+  fallback: ['system-ui', 'arial']
 });
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ["latin"], 
-  weight: ["400", "500", "600", "700"], // Réduit de 6 à 4 poids
+  weight: ["400", "500", "600"], // Réduit à 3 poids (700 non utilisé pour cette police)
   variable: "--font-plus-jakarta-sans", 
-  display: "swap",
-  preload: false, // Pas de preload car c'est une variable font
-  adjustFontFallback: true
+  display: "optional", // Utilise optional pour éviter le FOIT et réduire les téléchargements
+  preload: false,
+  adjustFontFallback: true,
+  fallback: ['system-ui', 'arial']
 });
 
 export const metadata = {
