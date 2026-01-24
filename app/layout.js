@@ -59,6 +59,8 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Preload critical resources */}
         <link rel="preload" href="/logos/brand-icon-1.png" as="image" type="image/png" />
+        {/* Resource hints pour optimiser le chargement des CSS critiques */}
+        <link rel="preconnect" href="/" />
       </head>
       <body className={`${montserrat.className} ${plusJakartaSans.variable}`}>
         <MaterialSymbolsLoader />

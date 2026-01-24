@@ -46,6 +46,14 @@ const nextConfig = {
               priority: 5,
               reuseExistingChunk: true,
             },
+            // Optimiser les CSS en les séparant pour réduire la chaîne de requêtes
+            styles: {
+              name: 'styles',
+              test: /\.(css|scss|sass)$/,
+              chunks: 'all',
+              enforce: true,
+              priority: 20,
+            },
           },
         },
       };
