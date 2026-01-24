@@ -1,20 +1,8 @@
 import "./globals.css";
 import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
-import dynamic from "next/dynamic";
-
-// Charger Header et Footer de manière lazy pour réduire le bundle initial
-// SSR activé car ils sont critiques pour le SEO et l'accessibilité
-const Header = dynamic(() => import("./components/Header"), {
-  ssr: true
-});
-
-const Footer = dynamic(() => import("./components/Footer"), {
-  ssr: true
-});
-
-const MaterialSymbolsLoader = dynamic(() => import("./components/MaterialSymbolsLoader"), {
-  ssr: false // Pas besoin de SSR pour le chargement asynchrone des polices
-});
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MaterialSymbolsLoader from "./components/MaterialSymbolsLoader";
 
 // Réduire le nombre de poids pour optimiser la taille des polices
 const montserrat = Montserrat({ 

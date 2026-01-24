@@ -39,14 +39,6 @@ const nextConfig = {
               priority: 5,
               reuseExistingChunk: true,
             },
-            // Séparer les CSS dans des chunks dédiés
-            styles: {
-              test: /\.(css|module\.css)$/,
-              name: 'styles',
-              chunks: 'all',
-              enforce: true,
-              priority: 10,
-            },
           },
         },
       };

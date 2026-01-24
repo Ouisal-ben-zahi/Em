@@ -2,39 +2,36 @@
 
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+import Link from "next/link";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import emailjs from '@emailjs/browser';
+import { supabase } from "../lib/supabase";
+// Images servies depuis le dossier public de Next.js
 
-// Composants critiques chargés immédiatement (au-dessus de la ligne de flottaison)
+import zoomOutMapIcon from "./icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+import downloadIcon from "./icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+
+import CloudRed from "./components/CloudRed"
 import Hero from "./components/Hero";
+import Apropos from "./components/Apropos";
+import NosProjets from "./components/NosProjet";
+import PatternDecoratif from "./components/PatternDecoratif";
 
 // Charger les composants non critiques de manière asynchrone pour réduire le blocage du rendu
-// SSR activé pour éviter les erreurs d'hydratation, mais chargement différé côté client
-const Apropos = dynamic(() => import("./components/Apropos"), {
-  loading: () => <section id="a-propos" style={{ minHeight: '200px' }} aria-label="Chargement de la section À propos" />,
-  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
-});
-
-const NosProjets = dynamic(() => import("./components/NosProjet"), {
-  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section Nos projets" />,
-  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
-});
-
-const PatternDecoratif = dynamic(() => import("./components/PatternDecoratif"), {
-  ssr: false // Composant décoratif, pas besoin de SSR
-});
-
 const Processus = dynamic(() => import("./components/processus"), {
-  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section Processus" />,
-  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
 });
 
 const Formulaire = dynamic(() => import("./components/Formulaire"), {
-  loading: () => <section id="contact-form" style={{ minHeight: '200px' }} aria-label="Chargement du formulaire" />,
-  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
 });
 
 const Faq = dynamic(() => import("./components/faq"), {
-  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section FAQ" />,
-  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: true
 });
 
 
@@ -325,7 +322,7 @@ export default function Page() {
   return (
     <div className="page">
       <Hero/>
-      <Apropos />
+      <Apropos/>
       <NosProjets />
       <Processus />
       <Formulaire />
