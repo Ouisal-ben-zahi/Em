@@ -2,9 +2,24 @@ import "./globals.css";
 import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MaterialSymbolsLoader from "./components/MaterialSymbolsLoader";
 
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], display: "swap" });
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"], variable: "--font-plus-jakarta-sans", display: "swap" });
+// Réduire le nombre de poids pour optimiser la taille des polices
+const montserrat = Montserrat({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"], // Réduit de 5 à 4 poids
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true
+});
+const plusJakartaSans = Plus_Jakarta_Sans({ 
+  subsets: ["latin"], 
+  weight: ["400", "500", "600", "700"], // Réduit de 6 à 4 poids
+  variable: "--font-plus-jakarta-sans", 
+  display: "swap",
+  preload: false, // Pas de preload car c'est une variable font
+  adjustFontFallback: true
+});
 
 export const metadata = {
   title: "EM IMMO | Entrepreneurs Morocco Immobilier",
@@ -19,13 +34,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <head>
+        <link rel="dns-prefetch" href="https://c.animaapp.com" />
+        {/* Preconnect pour Material Symbols (chargés de manière asynchrone) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://c.animaapp.com" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
       </head>
       <body className={`${montserrat.className} ${plusJakartaSans.variable}`}>
+        <MaterialSymbolsLoader />
         <a href="#main-content" className="skip-link">Aller au contenu principal</a>
         <Header />
         <main id="main-content">{children}</main>
