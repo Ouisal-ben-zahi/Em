@@ -1,25 +1,27 @@
 "use client";
 
+import { useCallback, useMemo } from "react";
 import Image from "next/image";
 import CloudRed from "./CloudRed";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
-// Fonction pour rediriger vers WhatsApp
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "+212663871596";
-    const whatsappNumber = phoneNumber.replace(/[^0-9]/g, "");
-    const message = encodeURIComponent("Bonjour, je souhaite obtenir plus d'informations sur vos projets immobiliers.");
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-  };
-  const heroImg = "/imglanding/IMG_1589 copy.webp";
-  
+const heroImg = "/imglanding/IMG_1589 copy.webp";
+
 const heroHighlights = [
   "Promoteurs\nvérifiés",
   "Photos chantier\n+ suivi mensuel",
   "Paiements\npar étapes",
   "Achat possible à distance (MRE)",
 ];
+
+export default function Hero() {
+  // Fonction pour rediriger vers WhatsApp - mémorisée avec useCallback
+  const handleWhatsAppClick = useCallback(() => {
+    const phoneNumber = "+212663871596";
+    const whatsappNumber = phoneNumber.replace(/[^0-9]/g, "");
+    const message = encodeURIComponent("Bonjour, je souhaite obtenir plus d'informations sur vos projets immobiliers.");
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  }, []);
 
   return (
      <section id="accueil" className={styles.hero}>

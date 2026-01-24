@@ -1,6 +1,8 @@
 "use client";
 
-export default function CloudRed({ 
+import { memo } from "react";
+
+function CloudRed({ 
   top = "50%", 
   right = null,
   left = null,
@@ -60,3 +62,5 @@ export default function CloudRed({
     />
   );
 }
+
+export default memo(CloudRed);

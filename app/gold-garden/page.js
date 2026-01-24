@@ -3,7 +3,7 @@
 /* ==================================================
    IMPORTS
 ================================================== */
-import React, { useState } from "react";
+import React, { useState, useCallback, memo } from "react";
 import Image from "next/image";
 import CloudRed from "../components/CloudRed";
 import "./style.css";
@@ -13,27 +13,32 @@ import Formulaire from "../components/Formulaire";
    CONSTANTES
 ================================================== */
 const goldGardenHeroBg = "/imglanding/gold-garden-hero.webp";
+
+const slides = [
+  { id: 1, image: "/imglanding/gold-garden-carousel-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+  { id: 2, image: "/imglanding/gold-garden-carousel-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+  { id: 3, image: "/imglanding/gold-garden-carousel-3.webp", alt: "Vue panoramique du projet Gold Garden" },
+  { id: 4, image: "/imglanding/gold-garden-carousel-4.webp", alt: "Détails architecturaux du projet Gold Garden" },
+  { id: 5, image: "/imglanding/gold-garden-architecture.webp", alt: "Architecture du projet Gold Garden - Vue d'ensemble" },
+  { id: 6, image: "/imglanding/gold-garden-confort-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
+  { id: 7, image: "/imglanding/gold-garden-confort-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
+  { id: 8, image: "/imglanding/gold-garden-rooftop.webp", alt: "Vue panoramique du projet Gold Garden" },
+];
+
 /* ==================================================
    CAROUSEL – THUMBNAILS ARCHITECTURE
 ================================================== */
-function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
-  const slides = [
-    { id: 1, image: "/imglanding/gold-garden-carousel-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
-    { id: 2, image: "/imglanding/gold-garden-carousel-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
-    { id: 3, image: "/imglanding/gold-garden-carousel-3.webp", alt: "Vue panoramique du projet Gold Garden" },
-    { id: 4, image: "/imglanding/gold-garden-carousel-4.webp", alt: "Détails architecturaux du projet Gold Garden" },
-    { id: 5, image: "/imglanding/gold-garden-architecture.webp", alt: "Architecture du projet Gold Garden - Vue d'ensemble" },
-    { id: 6, image: "/imglanding/gold-garden-confort-1.webp", alt: "Vue extérieure du projet Gold Garden - Façade moderne" },
-    { id: 7, image: "/imglanding/gold-garden-confort-2.webp", alt: "Vue intérieure du projet Gold Garden - Espace de vie" },
-    { id: 8, image: "/imglanding/gold-garden-rooftop.webp", alt: "Vue panoramique du projet Gold Garden" },
-  ];
-
-  const handleKeyDown = (e, slide) => {
+const GoldGardenFeaturesCarousel = memo(function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
+  const handleKeyDown = useCallback((e, slide) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       onImageSelect(slide.image);
     }
-  };
+  }, [onImageSelect]);
+
+  const handleImageClick = useCallback((image) => {
+    onImageSelect(image);
+  }, [onImageSelect]);
 
   return (
     <section 
@@ -49,7 +54,7 @@ function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
               key={slide.id}
               role="listitem"
               className={`architecture-thumbnail-item ${isSelected ? "selected" : ""}`}
-              onClick={() => onImageSelect(slide.image)}
+              onClick={() => handleImageClick(slide.image)}
               onKeyDown={(e) => handleKeyDown(e, slide)}
               tabIndex={0}
               aria-label={`Sélectionner l'image ${slide.id}: ${slide.alt}`}
@@ -71,7 +76,7 @@ function GoldGardenFeaturesCarousel({ onImageSelect, selectedImage }) {
       </div>
     </section>
   );
-}
+});
 
 
 
@@ -84,6 +89,10 @@ export default function GoldGardenPage() {
   const [mainImage, setMainImage] = useState(
     "/imglanding/gold-garden-architecture.webp"
   );
+
+  const handleImageSelect = useCallback((image) => {
+    setMainImage(image);
+  }, []);
 
   return (
     <div className="gold-garden-wrapper">
@@ -127,7 +136,7 @@ export default function GoldGardenPage() {
           {/* Thumbnails */}
           <div className="architecture-thumbnails">
             <GoldGardenFeaturesCarousel
-              onImageSelect={setMainImage}
+              onImageSelect={handleImageSelect}
               selectedImage={mainImage}
             />
           </div>

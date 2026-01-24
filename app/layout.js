@@ -28,6 +28,23 @@ export const metadata = {
     icon: '/logos/brand-icon-1.png',
     apple: '/logos/brand-icon-1.png',
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: '#df1f26',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -38,6 +55,8 @@ export default function RootLayout({ children }) {
         {/* Preconnect pour Material Symbols (chargés de manière asynchrone) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload critical resources */}
+        <link rel="preload" href="/logos/brand-icon-1.png" as="image" type="image/png" />
       </head>
       <body className={`${montserrat.className} ${plusJakartaSans.variable}`}>
         <MaterialSymbolsLoader />

@@ -87,6 +87,9 @@ a {
 img {
   max-width: 100%;
   display: block;
+  height: auto;
+  /* Optimisation des performances */
+  content-visibility: auto;
 }
 
 .page {
@@ -109,6 +112,9 @@ img {
   border-radius: 50%;
   filter: blur(40px);
   opacity: 0.8;
+  /* Optimisation des performances - isolation pour les effets de flou */
+  will-change: transform, opacity;
+  contain: layout style paint;
 }
 
 

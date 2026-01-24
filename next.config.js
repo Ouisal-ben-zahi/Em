@@ -63,6 +63,8 @@ const nextConfig = {
   },
   // Compression et optimisation
   compress: true,
+  // Optimisation des performances
+  poweredByHeader: false, // Retirer le header X-Powered-By
   // Headers de performance
   async headers() {
     return [
@@ -85,6 +87,10 @@ const nextConfig = {
             key: 'Referrer-Policy',
             value: 'origin-when-cross-origin'
           },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          },
         ],
       },
       {
@@ -98,6 +104,24 @@ const nextConfig = {
       },
       {
         source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/logos/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/icons/:path*',
         headers: [
           {
             key: 'Cache-Control',

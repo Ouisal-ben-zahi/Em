@@ -210,10 +210,12 @@
 /* Optimisation des performances - will-change pour les animations */
 .architecture-thumbnail-item {
   will-change: transform, opacity;
+  contain: layout style paint;
 }
 
 .architecture-main-image img {
   will-change: opacity;
+  content-visibility: auto;
 }
 
 /* ==================================================
