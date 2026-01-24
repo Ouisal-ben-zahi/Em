@@ -6,29 +6,9 @@ const nextConfig = {
   swcMinify: true,
   // Optimisations de production
   productionBrowserSourceMaps: false, // Désactiver les source maps en production pour réduire la taille
-  // Désactiver les polyfills inutiles pour les navigateurs modernes
-  experimental: {
-    // Ne pas transpiler les fonctionnalités ES2022+ supportées nativement
-    esmExternals: true,
-  },
   // Optimisation des chunks et minification
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
-      // Exclure les polyfills inutiles pour les navigateurs modernes
-      config.resolve = {
-        ...config.resolve,
-        fallback: {
-          ...config.resolve.fallback,
-          // Ne pas inclure de polyfills pour les fonctionnalités modernes
-        },
-      };
-      
-      // Exclure les polyfills de core-js et autres
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        // Empêcher l'inclusion de polyfills inutiles
-      };
-      
       // Optimisations supplémentaires pour la production
       config.optimization = {
         ...config.optimization,
