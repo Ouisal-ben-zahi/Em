@@ -23,26 +23,52 @@ export default function Faq() {
       return;
     }
 
+    // Utiliser un flag pour éviter les lectures multiples dans la même frame
+    let isSyncing = false;
+    let pendingSync = false;
+
     const syncHeights = () => {
-      if (faqContentRef.current && faqImageRef.current) {
-        // Forcer un reflow pour obtenir la hauteur exacte
-        void faqContentRef.current.offsetHeight;
-        
-        // Obtenir la hauteur réelle du contenu FAQ (header + questions)
+      if (isSyncing || !faqContentRef.current || !faqImageRef.current) {
+        pendingSync = true;
+        return;
+      }
+
+      isSyncing = true;
+      
+      // Utiliser requestAnimationFrame pour batch les lectures et écritures
+      requestAnimationFrame(() => {
+        if (!faqContentRef.current || !faqImageRef.current) {
+          isSyncing = false;
+          if (pendingSync) {
+            pendingSync = false;
+            syncHeights();
+          }
+          return;
+        }
+
+        // Lire toutes les propriétés géométriques en une seule fois
         const contentHeight = faqContentRef.current.offsetHeight;
         
         // Appliquer la hauteur avec transition CSS
         // Même si toutes les questions sont fermées, on prend la hauteur minimale (header)
         faqImageRef.current.style.height = `${Math.max(contentHeight, 0)}px`;
-      }
+        
+        isSyncing = false;
+        
+        // Si une synchronisation était en attente, la traiter maintenant
+        if (pendingSync) {
+          pendingSync = false;
+          syncHeights();
+        }
+      });
     };
 
     // Fonction pour synchroniser après un court délai (pour laisser les animations se terminer)
     const syncWithDelay = () => {
-      // Utiliser requestAnimationFrame pour une meilleure performance
+      // Utiliser requestAnimationFrame pour batch les opérations
       requestAnimationFrame(() => {
-        // Double RAF pour s'assurer que le DOM est mis à jour
         requestAnimationFrame(() => {
+          // Utiliser setTimeout pour laisser les transitions CSS se terminer
           setTimeout(() => {
             syncHeights();
           }, 100);
@@ -52,6 +78,7 @@ export default function Faq() {
 
     // Fonction pour synchroniser immédiatement (quand toutes les questions sont fermées)
     const syncImmediate = () => {
+      // Utiliser requestAnimationFrame pour éviter les forced reflows
       requestAnimationFrame(() => {
         syncHeights();
       });
@@ -102,10 +129,8 @@ export default function Faq() {
         if (allClosed || isClosing) {
           // Synchroniser immédiatement quand on ferme ou que tout est fermé
           syncImmediate();
-          // Puis resynchroniser plusieurs fois pour s'assurer que la hauteur est correcte
-          setTimeout(() => syncHeights(), 150);
-          setTimeout(() => syncHeights(), 300);
-          setTimeout(() => syncHeights(), 450);
+          // Resynchroniser une seule fois après un délai pour s'assurer que la hauteur est correcte
+          setTimeout(() => syncHeights(), 200);
         } else {
           syncWithDelay();
         }
@@ -144,11 +169,13 @@ export default function Faq() {
         const allClosed = allDetails && Array.from(allDetails).every(detail => !detail.hasAttribute('open'));
         
         if (allClosed) {
-          // Forcer la synchronisation immédiate si tout est fermé
+          // Synchroniser immédiatement si tout est fermé
           syncImmediate();
-          setTimeout(() => syncHeights(), 100);
         } else {
-          syncHeights();
+          // Utiliser requestAnimationFrame pour éviter les forced reflows
+          requestAnimationFrame(() => {
+            syncHeights();
+          });
         }
       }
     };
@@ -163,7 +190,6 @@ export default function Faq() {
           
           if (allClosed) {
             syncImmediate();
-            setTimeout(() => syncHeights(), 200);
           } else {
             syncWithDelay();
           }
