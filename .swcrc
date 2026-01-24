@@ -10,12 +10,15 @@
     "transform": {
       "react": {
         "runtime": "automatic"
-      }
+      },
+      "legacyDecorator": false,
+      "decoratorMetadata": false
     },
     "externalHelpers": false,
     "keepClassNames": false,
     "baseUrl": null,
-    "paths": {}
+    "paths": {},
+    "loose": false
   },
   "module": {
     "type": "es6",

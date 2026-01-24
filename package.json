@@ -9,10 +9,10 @@
     "lint": "next lint"
   },
   "browserslist": [
-    "chrome >= 90",
-    "firefox >= 88",
-    "safari >= 14",
-    "edge >= 90"
+    "chrome >= 92",
+    "firefox >= 90",
+    "safari >= 15.4",
+    "edge >= 92"
   ],
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

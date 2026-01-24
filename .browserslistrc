@@ -1,0 +1,10 @@
+# Navigateurs modernes supportant ES2022 nativement
+chrome >= 92
+firefox >= 90
+safari >= 15.4
+edge >= 92
+
+# Pas de support pour les navigateurs anciens
+not dead
+not op_mini all
+
