@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo } from "react";
 import Image from "next/image";
 import PatternDecoratif from "./PatternDecoratif";
 import styles from "./Apropos.module.css";
@@ -143,9 +143,7 @@ const scrollToForm = () => {
     }
 };
 
-export default function Apropos() {
-
-
+function Apropos() {
     return (
 
         <section id="a-propos" className={`section ${styles.aboutSection}`}>
@@ -192,4 +190,6 @@ export default function Apropos() {
 
     );
 }
+
+export default memo(Apropos);
 
