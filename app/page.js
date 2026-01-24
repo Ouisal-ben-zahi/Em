@@ -2,36 +2,39 @@
 
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
-import Link from "next/link";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import emailjs from '@emailjs/browser';
-import { supabase } from "../lib/supabase";
-// Images servies depuis le dossier public de Next.js
 
-import zoomOutMapIcon from "./icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
-import downloadIcon from "./icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
-
-import CloudRed from "./components/CloudRed"
+// Composants critiques chargés immédiatement (au-dessus de la ligne de flottaison)
 import Hero from "./components/Hero";
-import Apropos from "./components/Apropos";
-import NosProjets from "./components/NosProjet";
-import PatternDecoratif from "./components/PatternDecoratif";
 
 // Charger les composants non critiques de manière asynchrone pour réduire le blocage du rendu
+// SSR désactivé pour éviter le chargement synchrone des CSS
+const Apropos = dynamic(() => import("./components/Apropos"), {
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+});
+
+const NosProjets = dynamic(() => import("./components/NosProjet"), {
+  loading: () => <div style={{ minHeight: '200px' }} />,
+  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+});
+
+const PatternDecoratif = dynamic(() => import("./components/PatternDecoratif"), {
+  ssr: false // Composant décoratif, pas besoin de SSR
+});
+
 const Processus = dynamic(() => import("./components/processus"), {
   loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: true
+  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
 });
 
 const Formulaire = dynamic(() => import("./components/Formulaire"), {
   loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: true
+  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
 });
 
 const Faq = dynamic(() => import("./components/faq"), {
   loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: true
+  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
 });
 
 

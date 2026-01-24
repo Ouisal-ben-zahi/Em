@@ -2,8 +2,57 @@
 const nextConfig = {
   reactStrictMode: true,
   // Optimisation du JavaScript - cibler des navigateurs modernes
-  // SWC est configuré via .swcrc pour cibler ES2022
+  // SWC est configuré via .swcrc pour cibler ES2022 avec minification optimisée
   swcMinify: true,
+  // Optimisations de production
+  productionBrowserSourceMaps: false, // Désactiver les source maps en production pour réduire la taille
+  // Optimisation des chunks et minification
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Optimisations supplémentaires pour la production
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        minimize: true,
+        splitChunks: {
+          chunks: 'all',
+          minSize: 20000,
+          maxSize: 244000,
+          cacheGroups: {
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              priority: -10,
+              reuseExistingChunk: true,
+              minChunks: 1,
+            },
+            // Séparer le runtime webpack dans un chunk plus petit
+            runtime: {
+              name: 'runtime',
+              minChunks: 1,
+              priority: 5,
+              reuseExistingChunk: true,
+            },
+            // Séparer les CSS dans des chunks dédiés
+            styles: {
+              test: /\.(css|module\.css)$/,
+              name: 'styles',
+              chunks: 'all',
+              enforce: true,
+              priority: 10,
+            },
+          },
+        },
+      };
+    }
+    return config;
+  },
   // Optimisation des images
   images: {
     formats: ['image/avif', 'image/webp'],

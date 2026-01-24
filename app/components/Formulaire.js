@@ -157,6 +157,7 @@ function LeadForm() {
           onChange={handleChange}
           required
           aria-required="true"
+          aria-label="Sélectionner un projet"
         >
           <option value="" disabled>Sélectionner un projet</option>
           <option value="PATIO">PATIO Résidence</option>
