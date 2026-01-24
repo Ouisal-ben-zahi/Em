@@ -79,6 +79,8 @@ const nextConfig = {
   compress: true,
   // Optimisation des performances
   poweredByHeader: false, // Retirer le header X-Powered-By
+  // Autoriser les origines cross-origin en développement
+  allowedDevOrigins: ['192.168.100.90', 'localhost'],
   // Headers de performance
   async headers() {
     return [

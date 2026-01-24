@@ -28,12 +28,6 @@ export const metadata = {
     icon: '/logos/brand-icon-1.png',
     apple: '/logos/brand-icon-1.png',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: '#df1f26',
   robots: {
     index: true,
     follow: true,
@@ -45,6 +39,14 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+// Export viewport séparé (nouvelle API Next.js)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#df1f26',
 };
 
 export default function RootLayout({ children }) {
