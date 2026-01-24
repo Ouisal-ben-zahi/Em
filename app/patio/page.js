@@ -13,7 +13,7 @@ import Formulaire from "../components/Formulaire";
 /* ==================================================
    CONSTANTES
 ================================================== */
-const patioHeroBg = "/imglanding/11.png";
+const patioHeroBg = "/imglanding/11.webp";
 
 /* ==================================================
    CAROUSEL – THUMBNAILS ARCHITECTURE

@@ -9,7 +9,7 @@ import "./style.css";
 
 const footerLogoImg = "/logos/asset-6.png";
 const brandIconImg = "/logos/brand-icon-1.png";
-const patioImg = "/imglanding/11.png";
+const patioImg = "/imglanding/11.webp";
 const gardenImg = "/imglanding/5.png";
 const zoraImg = "/imglanding/zora-projet.jpg";
 import zoomOutMapIcon from "../icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";

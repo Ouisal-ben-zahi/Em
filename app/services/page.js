@@ -10,7 +10,7 @@ import "./style.css";
 const footerLogoImg = "/logos/asset-6.png";
 const brandIconImg = "/logos/brand-icon-1.png";
 const aboutFirstPlanImg = "/imglanding/8.png";
-const patioImg = "/imglanding/11.png";
+const patioImg = "/imglanding/11.webp";
 
 function AboutFeaturesCarousel() {
   const slides = [
