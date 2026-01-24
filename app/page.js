@@ -7,15 +7,15 @@ import dynamic from "next/dynamic";
 import Hero from "./components/Hero";
 
 // Charger les composants non critiques de manière asynchrone pour réduire le blocage du rendu
-// SSR désactivé pour éviter le chargement synchrone des CSS
+// SSR activé pour éviter les erreurs d'hydratation, mais chargement différé côté client
 const Apropos = dynamic(() => import("./components/Apropos"), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+  loading: () => <section id="a-propos" style={{ minHeight: '200px' }} aria-label="Chargement de la section À propos" />,
+  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
 });
 
 const NosProjets = dynamic(() => import("./components/NosProjet"), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section Nos projets" />,
+  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
 });
 
 const PatternDecoratif = dynamic(() => import("./components/PatternDecoratif"), {
@@ -23,18 +23,18 @@ const PatternDecoratif = dynamic(() => import("./components/PatternDecoratif"), 
 });
 
 const Processus = dynamic(() => import("./components/processus"), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section Processus" />,
+  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
 });
 
 const Formulaire = dynamic(() => import("./components/Formulaire"), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+  loading: () => <section id="contact-form" style={{ minHeight: '200px' }} aria-label="Chargement du formulaire" />,
+  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
 });
 
 const Faq = dynamic(() => import("./components/faq"), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-  ssr: false // Désactiver SSR pour éviter le chargement synchrone des CSS
+  loading: () => <section style={{ minHeight: '200px' }} aria-label="Chargement de la section FAQ" />,
+  ssr: true // Réactiver SSR pour éviter les erreurs d'hydratation
 });
 
 
@@ -325,7 +325,7 @@ export default function Page() {
   return (
     <div className="page">
       <Hero/>
-      <Apropos/>
+      <Apropos />
       <NosProjets />
       <Processus />
       <Formulaire />
