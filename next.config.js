@@ -4,6 +4,13 @@ const nextConfig = {
   // Optimisation du JavaScript - cibler des navigateurs modernes
   // SWC est configuré via .swcrc pour cibler ES2022 avec minification optimisée
   swcMinify: true,
+  // Compiler pour des navigateurs modernes uniquement (évite les polyfills inutiles)
+  compiler: {
+    // Désactiver les polyfills pour les fonctionnalités Baseline déjà supportées
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
   // Optimisations de production
   productionBrowserSourceMaps: false, // Désactiver les source maps en production pour réduire la taille
   // Optimisation des chunks et minification
@@ -41,6 +48,13 @@ const nextConfig = {
             },
           },
         },
+      };
+      
+      // Exclure regenerator-runtime si possible (pour navigateurs modernes)
+      // Note: Certaines dépendances peuvent encore en avoir besoin
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        // Ne pas forcer l'exclusion car certaines dépendances peuvent en avoir besoin
       };
     }
     return config;

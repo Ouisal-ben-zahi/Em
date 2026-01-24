@@ -1,0 +1,16 @@
+# Navigateurs modernes supportant les fonctionnalités Baseline ES2020+
+# Ces versions supportent nativement :
+# - Array.prototype.at, flat, flatMap
+# - Object.fromEntries, Object.hasOwn
+# - String.prototype.trimStart, trimEnd
+# - Et toutes les fonctionnalités ES2020+
+
+chrome >= 92
+firefox >= 90
+safari >= 15.4
+edge >= 92
+
+# Exclure les navigateurs très anciens
+not dead
+not op_mini all
+

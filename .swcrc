@@ -10,7 +10,9 @@
     "transform": {
       "react": {
         "runtime": "automatic"
-      }
+      },
+      "legacyDecorator": false,
+      "decoratorMetadata": false
     },
     "externalHelpers": false,
     "keepClassNames": false,
