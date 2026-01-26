@@ -39,3 +39,5 @@ Ces images sont utilisées comme :
 
 Réduire la taille totale de ces images de ~4 MB à moins de 500 KB (compression ~85%).
 
+
+

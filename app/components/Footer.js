@@ -74,7 +74,7 @@ export default function Footer() {
         <div className={styles.footerMain}>
           <div className={`container ${styles.footerMainContainer} ${styles.footerGrid}`}>
             <div className={styles.footerBrand}>
-              <Image src={brandIconImg} alt="Brand Icon" width={120} height={120} className={styles.footerBrandIcon} />
+              <Image src={brandIconImg} alt="Brand Icon" width={120} height={120}  className={styles.footerBrandIcon} />
               <Image src={footerLogoImg} alt="MOROCCO IMMOBILIER" width={300} height={80} className={styles.footerLogoImg} />
             </div>
             <div className={styles.footerNavigation}>
