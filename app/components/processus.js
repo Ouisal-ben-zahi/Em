@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import styles from "./processus.module.css";
+
+const phoneIcon = "/icons/phone.svg";
 
 const timeline = [
   "Appel découverte",
@@ -48,7 +51,7 @@ export default function Processus() {
                  <div className={styles.processCta}>
                    <button className={`btn primary ${styles.processCtaBtn}`} onClick={scrollToForm}>
                      <span className="icon-square icon-square-white">
-                       <span className="material-symbols-outlined">phone</span>
+                       <Image src={phoneIcon} alt="Téléphone" width={24} height={24} />
                      </span>
                      <span>Planifier Mon Appel</span>
                    </button>

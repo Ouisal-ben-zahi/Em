@@ -12,7 +12,8 @@ const montserrat = Montserrat({
   display: "optional", // Utilise optional au lieu de swap pour éviter le FOIT et réduire les téléchargements
   preload: true,
   adjustFontFallback: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', 'arial'],
+  variable: "--font-montserrat"
 });
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ["latin"], 
@@ -57,15 +58,18 @@ export default function RootLayout({ children }) {
     <html lang="fr">
       <head>
         <link rel="dns-prefetch" href="https://c.animaapp.com" />
-        {/* Preconnect pour Material Symbols (chargés de manière asynchrone) */}
+        {/* Preconnect pour Material Symbols */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Charger Material Symbols directement dans le head pour garantir l'affichage */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
         {/* Preload critical resources */}
         <link rel="preload" href="/logos/brand-icon-1.png" as="image" type="image/png" />
         {/* Resource hints pour optimiser le chargement des CSS critiques */}
         <link rel="preconnect" href="/" />
       </head>
-      <body className={`${montserrat.className} ${plusJakartaSans.variable}`}>
+      <body className={`${montserrat.className} ${montserrat.variable} ${plusJakartaSans.variable}`}>
         <MaterialSymbolsLoader />
         <a href="#main-content" className="skip-link">Aller au contenu principal</a>
         <Header />

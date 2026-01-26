@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function MaterialSymbolsLoader() {
   useEffect(() => {
-    // Charger les Material Symbols de manière asynchrone
+    // Charger les Material Symbols immédiatement
     const loadMaterialSymbols = () => {
       const links = [
         {
@@ -24,19 +24,18 @@ export default function MaterialSymbolsLoader() {
           link.id = id;
           link.rel = "stylesheet";
           link.href = href;
-          link.media = "print";
-          link.onload = function() {
-            this.media = "all";
-          };
+          link.crossOrigin = "anonymous";
+          // Charger immédiatement sans délai
+          link.media = "all";
           document.head.appendChild(link);
         }
       });
     };
 
-    // Charger après un court délai pour ne pas bloquer le rendu initial
-    const timeoutId = setTimeout(loadMaterialSymbols, 100);
-    
-    return () => clearTimeout(timeoutId);
+    // Charger immédiatement
+    if (typeof document !== 'undefined') {
+      loadMaterialSymbols();
+    }
   }, []);
 
   return null;

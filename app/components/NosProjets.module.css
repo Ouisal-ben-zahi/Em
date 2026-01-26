@@ -71,6 +71,7 @@
   padding-left: 0;
   position: relative;
   z-index: 2;
+  margin-top: -50px;
 }
 
 .projectsSectionHeader h2 {
@@ -425,7 +426,10 @@
 .projectAction :global(.icon-square img) {
   width: 25px;
   height: 25px;
+  display: block;
+  opacity: 1;
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
 .projectAction:hover :global(.icon-square img) {
@@ -442,6 +446,9 @@
 
 .projectAction :global(.icon-square-white img) {
   filter: brightness(0) invert(1);
+  display: block;
+  opacity: 1;
+  object-fit: contain;
 }
 
 .projectAction > :global(span:not(.icon-square)) {
@@ -510,12 +517,11 @@
 .projectDownloadBtn img {
   width: 24px;
   height: 24px;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-  filter: brightness(0) saturate(100%) invert(13%) sepia(94%) saturate(7151%) hue-rotate(349deg) brightness(92%) contrast(87%);
+  display: block;
+  opacity: 1;
   flex-shrink: 0;
   object-fit: contain;
+  filter: brightness(0) saturate(100%);
 }
 
 .downloadText {

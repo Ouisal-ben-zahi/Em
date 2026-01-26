@@ -5,8 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import CloudRed from "./CloudRed";
 import styles from "./NosProjets.module.css";
-import zoomOutMapIcon from "../icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
-import downloadIcon from "../icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+
+const zoomIcon = "/icons/zoom.svg";
+const arrowDownwardIcon = "/icons/arrow_downward.svg";
 
 const gardenImg = "/imglanding/5w.webp";
 const patioImg = "/imglanding/11.webp";
@@ -78,7 +79,7 @@ export default function NosProjets() {
                 }>
                   <button className={`btn primary ${styles.projectAction}`}>
                     <span className="icon-square icon-square-white">
-                      <Image src={zoomOutMapIcon} alt="" width={25} height={25} />
+                      <Image src={zoomIcon} alt="" width={25} height={25} style={{ display: 'block', opacity: 1 }} />
                     </span>
                     <span>{project.action}</span>
                   </button>
@@ -86,7 +87,7 @@ export default function NosProjets() {
               </div>
               <div className={styles.projectImageWrapper}>
                 <button className={styles.projectDownloadBtn} aria-label="Télécharger plans & brochure">
-                  <Image src={downloadIcon} alt="Télécharger" width={24} height={24} />
+                  <Image src={arrowDownwardIcon} alt="Télécharger" width={24} height={24} />
                 </button>
                 <div className={styles.downloadText}>Télécharger plans & brochure</div>
                 <Image 

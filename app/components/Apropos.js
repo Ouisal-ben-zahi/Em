@@ -46,28 +46,64 @@ function AboutFeaturesCarousel() {
     const renderIcon = (name) => {
         if (name === "file") {
             return (
-                <span className="material-symbols-sharp" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>
+                <span className="material-symbols-sharp" style={{ 
+                    fontSize: '48px', 
+                    display: 'inline-block', 
+                    width: '48px', 
+                    height: '48px',
+                    lineHeight: '1',
+                    fontFamily: 'Material Symbols Sharp',
+                    fontWeight: 'normal',
+                    fontStyle: 'normal'
+                }}>
                     demography
                 </span>
             );
         }
         if (name === "doc") {
             return (
-                <span className="material-symbols-sharp" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>
+                <span className="material-symbols-sharp" style={{ 
+                    fontSize: '48px', 
+                    display: 'inline-block', 
+                    width: '48px', 
+                    height: '48px',
+                    lineHeight: '1',
+                    fontFamily: 'Material Symbols Sharp',
+                    fontWeight: 'normal',
+                    fontStyle: 'normal'
+                }}>
                     contract
                 </span>
             );
         }
         if (name === "money") {
             return (
-                <span className="material-symbols-sharp" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>
+                <span className="material-symbols-sharp" style={{ 
+                    fontSize: '48px', 
+                    display: 'inline-block', 
+                    width: '48px', 
+                    height: '48px',
+                    lineHeight: '1',
+                    fontFamily: 'Material Symbols Sharp',
+                    fontWeight: 'normal',
+                    fontStyle: 'normal'
+                }}>
                     paid
                 </span>
             );
         }
         if (name === "chart") {
             return (
-                <span className="material-symbols-sharp" style={{ fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>
+                <span className="material-symbols-sharp" style={{ 
+                    fontSize: '48px', 
+                    display: 'inline-block', 
+                    width: '48px', 
+                    height: '48px',
+                    lineHeight: '1',
+                    fontFamily: 'Material Symbols Sharp',
+                    fontWeight: 'normal',
+                    fontStyle: 'normal'
+                }}>
                     finance_mode
                 </span>
             );
@@ -180,7 +216,16 @@ export default function Apropos() {
                     <div className={styles.aboutCtaWrapper}>
                         <button className="cta secondary" onClick={scrollToForm}>
                             <span className="icon-square icon-square-white">
-                                <span className="material-symbols-outlined">phone</span>
+                                <span className="material-symbols-outlined" style={{ 
+                                    fontSize: '24px', 
+                                    display: 'inline-block', 
+                                    width: '24px', 
+                                    height: '24px',
+                                    lineHeight: '1',
+                                    fontFamily: 'Material Symbols Outlined',
+                                    fontWeight: 'normal',
+                                    fontStyle: 'normal'
+                                }}>phone</span>
                             </span>
                             <span>Comprendre notre méthode</span>
                         </button>

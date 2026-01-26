@@ -10,8 +10,9 @@ import "./style.css";
 const patioImg = "/imglanding/11.webp";
 const gardenImg = "/imglanding/5w.webp";
 const zoraImg = "/imglanding/zora-projet.jpg";
-import zoomOutMapIcon from "../icons/zoom_out_map_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
-import downloadIcon from "../icons/download_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png";
+
+const zoomIcon = "/icons/zoom.svg";
+const arrowDownwardIcon = "/icons/arrow_downward.svg";
 
 const projects = [
   {
@@ -152,7 +153,7 @@ export default function ProjetsPage() {
                   }>
                     <button className="btn primary projectAction">
                       <span className="icon-square icon-square-white">
-                        <Image src={zoomOutMapIcon} alt="" width={25} height={25} />
+                        <Image src={zoomIcon} alt="" width={25} height={25} style={{ display: 'block', opacity: 1 }} />
                       </span>
                       <span>{project.action}</span>
                     </button>

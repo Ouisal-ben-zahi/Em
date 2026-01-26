@@ -478,12 +478,15 @@
 }
 
 .featureIcon :global(.material-symbols-sharp) {
-  font-size: 45px;
-  width: 30px;
-  height: 30px;
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
   display: inline-block;
   line-height: 1;
- min-height: 80px;
+  font-family: 'Material Symbols Sharp', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
 }
 
 .aboutFeatureCard.active .featureIcon {
@@ -613,13 +616,15 @@
 }
 
 .aboutCtaWrapper :global(.cta.secondary .icon-square .material-symbols-outlined) {
-  font-size: 30px;
-  width: 15px;
-  height: 15px;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
+  line-height: 1;
+  font-family: 'Material Symbols Outlined', sans-serif;
 }
 
 .aboutCtaWrapper :global(.cta.secondary:hover .icon-square .material-symbols-outlined) {
@@ -634,6 +639,14 @@
 
 .aboutCtaWrapper :global(.cta.secondary .icon-square-white .material-symbols-outlined) {
   color: #0a0a0a;
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-family: 'Material Symbols Outlined', sans-serif;
 }
 
 .aboutCtaWrapper :global(.cta.secondary > span:not(.icon-square)) {
