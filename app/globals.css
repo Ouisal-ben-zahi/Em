@@ -150,6 +150,13 @@ img {
   cursor: pointer;
 }
 
+.btn.primary {
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(223, 31, 38, 0.25);
+  background-color: transparent;
+}
+
+
 
 .btn.ghost {
   background: transparent;
