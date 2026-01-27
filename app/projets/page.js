@@ -45,7 +45,7 @@ const projects = [
   },
   {
     title: "ZORA",
-    subtitle: "Résidence élégante & conviviale",
+    subtitle: "Signature d’un habitat élégant",
     bullets: [
       "Architecture contemporaine",
       "Emplacement stratégique",
