@@ -152,7 +152,6 @@ img {
 }
 
 .btn.primary {
-  background: var(--primary);
   color: #fff;
   box-shadow: 0 12px 30px rgba(223, 31, 38, 0.25);
 }

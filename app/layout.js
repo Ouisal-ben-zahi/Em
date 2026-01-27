@@ -69,7 +69,10 @@ export default function RootLayout({ children }) {
         {/* Resource hints pour optimiser le chargement des CSS critiques */}
         <link rel="preconnect" href="/" />
       </head>
-      <body className={`${montserrat.className} ${montserrat.variable} ${plusJakartaSans.variable}`}>
+      <body 
+        suppressHydrationWarning={true}
+        className={`${montserrat.className} ${montserrat.variable} ${plusJakartaSans.variable}`}
+      >
         <MaterialSymbolsLoader />
         <a href="#main-content" className="skip-link">Aller au contenu principal</a>
         <Header />
