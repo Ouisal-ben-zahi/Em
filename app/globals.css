@@ -138,30 +138,11 @@ img {
 }
 
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-  cursor: pointer;
-}
-
-.btn.primary {
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(223, 31, 38, 0.25);
-  background-color: transparent;
-}
 
 
 
-.btn.ghost {
-  background: transparent;
-  color: var(--primary);
-}
+
+
 
 .pill {
   display: inline-flex;
