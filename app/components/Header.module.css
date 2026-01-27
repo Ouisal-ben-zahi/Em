@@ -27,6 +27,54 @@
   width: 100%;
 }
 
+/* Header desktop */
+.header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1400px;
+  z-index: 40;
+  background: transparent;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  transition: background-color 0.3s ease, width 0.3s ease, top 0.3s ease;
+}
+
+/* Conteneur interne pour le contenu */
+.header .headerContent {
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Scroll effect desktop */
+.headerScrolled {
+  background: rgba(10, 10, 10, 0.95);
+  top: 0px;
+  width: 100%; /* prend toute la largeur de l’écran */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* On garde le contenu centré avec max-width */
+.headerScrolled .headerContent {
+  width: 90%;
+  max-width: 1400px;
+}
+
+/* Navigation et contenu restent identiques */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 /* Navigation */
 .nav {
   display: flex;
