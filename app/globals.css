@@ -151,15 +151,6 @@ img {
   cursor: pointer;
 }
 
-.btn.primary {
-  color: #fff;
-  box-shadow: 0 12px 30px rgba(223, 31, 38, 0.25);
-}
-
-.btn.primary:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-}
 
 .btn.ghost {
   background: transparent;
