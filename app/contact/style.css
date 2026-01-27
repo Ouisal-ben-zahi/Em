@@ -242,6 +242,8 @@
   border-radius: 0 !important;
   position: relative;
   overflow: hidden;
+  background-color: #f44336;
+  color: white;
 }
 
 .contact-form-submit::before {
