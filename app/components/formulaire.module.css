@@ -325,6 +325,9 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 0;
+  color: #fff;
+  background-color: #df1f26;
+;
 }
 
 /* ==================================================
