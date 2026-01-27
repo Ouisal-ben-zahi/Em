@@ -327,7 +327,8 @@
   border-radius: 0;
   color: #fff;
   background-color: #df1f26;
-;
+  border: 1px solid #df1f26;
+
 }
 
 /* ==================================================
