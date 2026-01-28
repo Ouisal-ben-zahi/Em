@@ -46,7 +46,9 @@ function LeadForm() {
           const templateParams = {
             from_name: formData.nom,
             from_phone: formData.telephone,
-            project: formData.projet,
+            // IMPORTANT: le nom du champ doit correspondre à la variable du template EmailJS
+            // Le template utilise {{projet}}, donc on envoie "projet" et non "project"
+            projet: formData.projet,
             budget: formData.budget || 'Non spécifié',
             message: formData.message || 'Aucun message',
             to_name: 'EM IMMO',
