@@ -95,9 +95,9 @@ function LeadForm() {
         throw new Error('Supabase non configuré');
       }
 
-      setSubmitStatus({ 
-        type: 'success', 
-        message: 'Votre demande a été envoyée avec succès ! Nous vous contacterons bientôt.' 
+      setSubmitStatus({
+        type: 'success',
+        message: 'Votre demande a été envoyée avec succès ! Nous vous contacterons bientôt.'
       });
       setFormData({
         nom: '',
@@ -108,9 +108,9 @@ function LeadForm() {
       });
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error);
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Une erreur est survenue. Veuillez réessayer plus tard.' 
+      setSubmitStatus({
+        type: 'error',
+        message: 'Une erreur est survenue. Veuillez réessayer plus tard.'
       });
     } finally {
       setIsSubmitting(false);
@@ -121,11 +121,11 @@ function LeadForm() {
     <form className={styles.formulaire} onSubmit={handleSubmit}>
       <div className={styles.formulaireField}>
         <label htmlFor="nom">Nom</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           id="nom"
           name="nom"
-          placeholder="NOM" 
+          placeholder="NOM"
           className={styles.formulaireInput}
           value={formData.nom}
           onChange={handleChange}
@@ -135,11 +135,11 @@ function LeadForm() {
       </div>
       <div className={styles.formulaireField}>
         <label htmlFor="telephone">Téléphone / WhatsApp</label>
-        <input 
-          type="tel" 
+        <input
+          type="tel"
           id="telephone"
           name="telephone"
-          placeholder="TÉLÉPHONE / WHATSAPP" 
+          placeholder="TÉLÉPHONE / WHATSAPP"
           className={styles.formulaireInput}
           value={formData.telephone}
           onChange={handleChange}
@@ -149,28 +149,29 @@ function LeadForm() {
       </div>
       <div className={styles.formulaireField}>
         <label htmlFor="projet">Projet</label>
-        <select 
+        <select
           id="projet"
           name="projet"
-          className={`${styles.formulaireInput} ${styles.formulaireSelect}`} 
+          className={`${styles.formulaireInput} ${styles.formulaireSelect}`}
           value={formData.projet}
           onChange={handleChange}
           required
           aria-required="true"
         >
           <option value="" disabled>Sélectionner un projet</option>
-          <option value="PATIO">PATIO Résidence</option>
+          <option value="PATIO">Patio Résidence</option>
           <option value="GOLD">Gold Garden</option>
+          <option value="ZORA">Zora Flowers</option>
           <option value="Autre">Autre</option>
         </select>
       </div>
       <div className={styles.formulaireField}>
         <label htmlFor="budget">Budget</label>
-        <input 
-          type="text" 
+        <input
+          type="text"
           id="budget"
           name="budget"
-          placeholder="BUDGET" 
+          placeholder="BUDGET"
           className={styles.formulaireInput}
           value={formData.budget}
           onChange={handleChange}
@@ -178,10 +179,10 @@ function LeadForm() {
       </div>
       <div className={styles.formulaireField}>
         <label htmlFor="message">Message</label>
-        <textarea 
+        <textarea
           id="message"
           name="message"
-          placeholder="MESSAGE" 
+          placeholder="MESSAGE"
           className={`${styles.formulaireInput} ${styles.formulaireTextarea}`}
           value={formData.message}
           onChange={handleChange}
@@ -189,7 +190,7 @@ function LeadForm() {
         ></textarea>
       </div>
       {submitStatus.message && (
-        <div 
+        <div
           role="alert"
           aria-live="polite"
           aria-atomic="true"
@@ -205,8 +206,8 @@ function LeadForm() {
           {submitStatus.message}
         </div>
       )}
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         className={`btn primary ${styles.formulaireSubmit}`}
         disabled={isSubmitting}
       >
@@ -217,7 +218,7 @@ function LeadForm() {
 }
 
 export default function Formulaire() {
- 
+
   return (
     <section id="contact-form" className={`section ${styles.formulaireSection}`}>
       <CloudRed top="23%" right="-25%" width="900px" height="650px" zIndex={1} />
@@ -233,11 +234,11 @@ export default function Formulaire() {
         <div className={styles.formulaireGrid}>
           <div className={styles.formulaireLeft}>
             <div className={styles.formulaireImageWrapper}>
-              <Image 
-                src={leadFormImg} 
-                alt="Résidence moderne EM IMMO - Projet immobilier à Marrakech" 
-                width={800} 
-                height={600} 
+              <Image
+                src={leadFormImg}
+                alt="Résidence moderne EM IMMO - Projet immobilier à Marrakech"
+                width={800}
+                height={600}
                 className={styles.formulaireImage}
                 quality={85}
                 loading="lazy"
